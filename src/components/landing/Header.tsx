@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useEffect } from 'react'
@@ -60,7 +61,7 @@ export function Header() {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-2 p-1 bg-white/5 rounded-xl border border-white/5">
+        <nav className="hidden md:flex items-center gap-4 p-1 bg-white/5 rounded-xl border border-white/5">
           {navItems.map((item) => {
             const isActive = activeSection === item.id
             return (
@@ -68,9 +69,9 @@ export function Header() {
                 key={item.name}
                 href={item.href} 
                 className={cn(
-                  "text-sm font-bold transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] px-6 py-2.5 rounded-xl relative overflow-hidden group/nav",
+                  "text-sm font-bold transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] px-10 py-1.5 rounded-xl relative overflow-hidden group/nav",
                   isActive 
-                    ? "bg-[#FFF0C4] text-[#1a0301] shadow-lg shadow-black/20 scale-105" 
+                    ? "bg-[#FFF0C4] text-[#1a0301] shadow-lg shadow-black/20 scale-x-105" 
                     : "text-muted-foreground hover:text-foreground hover:bg-white/10"
                 )}
               >
