@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
-import { Progress } from "@/components/ui/progress"
+import React, { useEffect, useState, useRef } from 'react'
 import { Cpu, Code2, PenTool as Figma, Rocket, Layers, Database } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 const technicalSkills = [
   { name: "UI/UX Design (Figma)", percentage: 95, icon: <Figma className="w-5 h-5" /> },
@@ -14,17 +14,37 @@ const technicalSkills = [
 ]
 
 export function SkillProgress() {
-  const [mounted, setMounted] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    setMounted(true)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          // Keep observing if we want it to re-animate, 
+          // but for a portfolio once is usually better.
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="skills" className="py-32 relative overflow-hidden">
+    <section id="skills" ref={sectionRef} className="py-32 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div>
+          <div className={cn(
+            "transition-all duration-1000 delay-300",
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+          )}>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-[#FFF0C4] text-[10px] font-bold uppercase tracking-[0.3em] mb-6 border border-white/10">
               Technical Arsenal
             </div>
@@ -36,38 +56,52 @@ export function SkillProgress() {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <div className="clay-card p-6 flex items-center gap-4">
-                <div className="text-primary font-bold text-3xl">2+</div>
+              <div className="clay-card p-6 flex items-center gap-4 group hover:scale-105 transition-transform duration-500">
+                <div className="text-primary font-bold text-3xl group-hover:animate-pulse">2+</div>
                 <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground leading-tight">Years of<br/>Execution</div>
               </div>
-              <div className="clay-card p-6 flex items-center gap-4">
-                <div className="text-primary font-bold text-3xl">50+</div>
+              <div className="clay-card p-6 flex items-center gap-4 group hover:scale-105 transition-transform duration-500">
+                <div className="text-primary font-bold text-3xl group-hover:animate-pulse">50+</div>
                 <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground leading-tight">Projects<br/>Optimized</div>
               </div>
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className={cn(
+            "space-y-8 transition-all duration-1000 delay-500",
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+          )}>
             <div className="clay-card p-10 rounded-[3rem] border border-white/5 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="space-y-10 relative z-10">
                 {technicalSkills.map((skill, index) => (
-                  <div key={index} className="space-y-3">
+                  <div key={index} className="space-y-3 group/skill">
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-white/5 text-primary border border-white/10">
+                        <div className="p-2 rounded-lg bg-white/5 text-primary border border-white/10 transition-colors group-hover/skill:bg-primary group-hover/skill:text-white">
                           {skill.icon}
                         </div>
                         <span className="text-sm font-bold tracking-wide">{skill.name}</span>
                       </div>
-                      <span className="text-xs font-bold text-primary">{mounted ? skill.percentage : 0}%</span>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-xs font-bold text-primary">
+                          {isVisible ? skill.percentage : 0}
+                        </span>
+                        <span className="text-[10px] font-bold text-primary/50">%</span>
+                      </div>
                     </div>
                     <div className="relative h-2 w-full bg-white/5 rounded-full overflow-hidden">
                       <div 
-                        className="absolute top-0 left-0 h-full bg-primary transition-all duration-1000 ease-out rounded-full"
-                        style={{ width: mounted ? `${skill.percentage}%` : '0%' }}
-                      />
+                        className="absolute top-0 left-0 h-full bg-primary transition-all duration-[1500ms] ease-[cubic-bezier(0.23,1,0.32,1)] rounded-full"
+                        style={{ 
+                          width: isVisible ? `${skill.percentage}%` : '0%',
+                          transitionDelay: `${index * 150}ms`
+                        }}
+                      >
+                        {/* Glow tip */}
+                        <div className="absolute top-0 right-0 w-8 h-full bg-white/20 blur-sm" />
+                      </div>
                       <div className="absolute inset-0 shadow-[inset_0_1px_2px_rgba(0,0,0,0.5)] rounded-full" />
                     </div>
                   </div>
