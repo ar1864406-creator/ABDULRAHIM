@@ -5,11 +5,14 @@ import { ChatDemo } from '@/components/landing/ChatDemo'
 import { HowItWorks } from '@/components/landing/HowItWorks'
 import { Testimonials } from '@/components/landing/Testimonials'
 import { Footer } from '@/components/landing/Footer'
+import { WelcomeNotification } from '@/components/landing/WelcomeNotification'
 import { Sparkles } from 'lucide-react'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground mesh-gradient relative">
+      <WelcomeNotification />
+      
       {/* Dynamic Background Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
