@@ -19,14 +19,9 @@ export default function Home() {
   const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
-    // Determine if we should skip intro or wait for it
-    if (sessionStorage.getItem('portfolio-intro-played')) {
-      setShowContent(true)
-    } else {
-      // Wait for the intro animation stages (approx 4.5s total)
-      const timer = setTimeout(() => setShowContent(true), 4500)
-      return () => clearTimeout(timer)
-    }
+    // Wait for the intro animation stages (approx 4.5s total)
+    const timer = setTimeout(() => setShowContent(true), 4500)
+    return () => clearTimeout(timer)
   }, [])
 
   return (

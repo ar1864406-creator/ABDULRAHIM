@@ -7,12 +7,6 @@ export function CinematicIntro() {
   const [phase, setPhase] = useState<'idle' | 'line' | 'pulse' | 'text' | 'exit' | 'done'>('idle');
 
   useEffect(() => {
-    // Check session storage to play only once per session
-    if (sessionStorage.getItem('portfolio-intro-played')) {
-      setPhase('done');
-      return;
-    }
-
     const sequence = async () => {
       // Phase 1: Thin line appears
       setPhase('line');
@@ -31,7 +25,6 @@ export function CinematicIntro() {
       await new Promise(r => setTimeout(r, 1200));
       
       setPhase('done');
-      sessionStorage.setItem('portfolio-intro-played', 'true');
     };
 
     sequence();
