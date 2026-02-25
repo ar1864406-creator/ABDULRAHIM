@@ -15,7 +15,7 @@ type Message = {
 
 export function ChatDemo() {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'ai', text: "Welcome to the NeuroFlow testing chamber. I'm initialized and ready to assist. What's on your mind?" }
+    { role: 'ai', text: "Hello! I'm Abdul's AI assistant. Want to know about his design process, tech stack, or availability for your next project?" }
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -39,7 +39,7 @@ export function ChatDemo() {
       const result = await interactiveAIDemoChat({ message: userMessage })
       setMessages(prev => [...prev, { role: 'ai', text: result.response }])
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'ai', text: "Systems currently recalibrating. Please retry in a moment." }])
+      setMessages(prev => [...prev, { role: 'ai', text: "Systems currently recalibrating. Please reach out to Abdul directly via email." }])
     } finally {
       setIsLoading(false)
     }
@@ -50,12 +50,12 @@ export function ChatDemo() {
   }
 
   return (
-    <section id="demo" className="py-32 relative">
+    <section id="assistant" className="py-32 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 font-headline tracking-tight">The Core <span className="text-primary">Experience.</span></h2>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 font-headline tracking-tight">The <span className="text-primary">Portfolio Assistant.</span></h2>
           <p className="text-muted-foreground text-xl max-w-2xl mx-auto font-light">
-            Directly interface with our neural engine. Observe the clarity, the speed, and the contextual depth.
+            Have questions? Interview my neural twin. It knows my skills, project history, and design philosophy.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export function ChatDemo() {
                   <Bot className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <CardTitle className="text-lg font-bold font-headline">NeuroFlow V2.5</CardTitle>
+                  <CardTitle className="text-lg font-bold font-headline">Abdul's Neural Twin</CardTitle>
                   <CardDescription className="text-xs text-emerald-500 font-bold uppercase tracking-widest flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                     Secure Link Established
@@ -116,8 +116,8 @@ export function ChatDemo() {
               
               <div className="p-8 border-t border-white/5 space-y-6 bg-white/5">
                 <div className="flex flex-wrap gap-3">
-                  <span className="text-xs font-bold text-muted-foreground mr-2 self-center uppercase tracking-widest">Inspirations:</span>
-                  {["Quantum Dynamics", "Bio-Ethics AI", "Neural Networks"].map(q => (
+                  <span className="text-xs font-bold text-muted-foreground mr-2 self-center uppercase tracking-widest">Inquire:</span>
+                  {["Tech Stack", "Design Process", "Availability"].map(q => (
                     <button 
                       key={q} 
                       onClick={() => handleQuickPrompt(q)}
@@ -129,27 +129,19 @@ export function ChatDemo() {
                 </div>
                 <div className="flex gap-4">
                   <Input 
-                    placeholder="Enter command or query..." 
-                    className="flex-1 bg-black/20 border-white/10 h-14 rounded-2xl focus-visible:ring-primary px-6"
+                    placeholder="Ask me anything..." 
+                    className="flex-1 bg-black/20 border-white/10 h-14 rounded-2xl focus-visible:ring-primary px-6 text-[#FFF0C4]"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   />
                   <Button 
-                    className="h-14 w-14 rounded-2xl bg-primary hover:bg-primary/90 clay-button p-0 flex-shrink-0"
+                    className="h-14 w-14 rounded-2xl bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] transition-all duration-300 clay-button p-0 flex-shrink-0"
                     onClick={handleSend}
                     disabled={isLoading}
                   >
                     <Send className="w-6 h-6" />
                   </Button>
-                </div>
-                <div className="flex justify-between items-center px-2">
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-[0.4em] font-bold">
-                    Terminal Status: Encrypted
-                  </p>
-                  <p className="text-[10px] text-primary/50 uppercase tracking-[0.4em] font-bold">
-                    NeuroFlow Core v2.5.0
-                  </p>
                 </div>
               </div>
             </CardContent>

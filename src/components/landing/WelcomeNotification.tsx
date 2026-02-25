@@ -9,8 +9,8 @@ export function WelcomeNotification() {
   useEffect(() => {
     const timer = setTimeout(() => {
       toast({
-        title: "✨ Neural Link Established",
-        description: "Welcome back, Pioneer. NeuroFlow AI v2.5 is synchronized and ready for deployment.",
+        title: "✨ Neural Portfolio Loaded",
+        description: "Welcome. You are now exploring Abdul Rahim's creative ecosystem.",
       })
     }, 1500)
 

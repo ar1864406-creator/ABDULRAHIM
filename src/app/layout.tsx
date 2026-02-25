@@ -4,8 +4,8 @@ import { Toaster } from "@/components/ui/toaster"
 import { CustomCursor } from "@/components/ui/custom-cursor"
 
 export const metadata: Metadata = {
-  title: 'NeuroFlow AI | Experience Next-Gen Interaction',
-  description: 'The most advanced AI chatbot for modern teams and creators. Boost productivity with fluid, context-aware conversations.',
+  title: 'Abdul Rahim | Web UI/UX Designer & Frontend Developer',
+  description: 'Portfolio of Abdul Rahim, a passionate Web UI/UX Designer with 2 years of experience creating modern, conversion-focused landing pages.',
 };
 
 export default function RootLayout({

@@ -1,23 +1,16 @@
 'use server';
 /**
- * @fileOverview Optimized Genkit flow for a high-speed interactive AI chatbot demo.
- *
- * - interactiveAIDemoChat - A function that handles the AI chatbot demo interaction.
- * - InteractiveAIDemoChatInput - The input type for the interactiveAIDemoChat function.
- * - InteractiveAIDemoChatOutput - The return type for the interactiveAIDemoChat function.
+ * @fileOverview AI assistant flow for Abdul Rahim's portfolio.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const InteractiveAIDemoChatInputSchema = z.object({
-  message: z.string().describe("The user's message to the AI chatbot."),
+  message: z.string().describe("The user's message to Abdul Rahim's assistant."),
 });
 export type InteractiveAIDemoChatInput = z.infer<typeof InteractiveAIDemoChatInputSchema>;
 
-// We return a simple object with a string response. 
-// Removing the Zod output schema from definePrompt disables JSON mode, 
-// which significantly reduces latency.
 export type InteractiveAIDemoChatOutput = {
   response: string;
 };
@@ -29,10 +22,19 @@ export async function interactiveAIDemoChat(input: InteractiveAIDemoChatInput): 
 const interactiveAIDemoChatPrompt = ai.definePrompt({
   name: 'interactiveAIDemoChatPrompt',
   input: {schema: InteractiveAIDemoChatInputSchema},
-  prompt: `You are NeuroFlow AI, a highly advanced neural assistant designed for clarity and speed. 
-Your goal is to provide responses that are easy to understand, clear, and helpful. 
-Use natural language and avoid overly complex jargon unless the user specifically asks for technical details.
-Be direct and efficient, but ensure your explanations are accessible to everyone.
+  prompt: `You are the AI Assistant for Abdul Rahim, a world-class Web UI/UX Designer and Frontend Developer.
+
+Bio:
+- 2 years of hands-on experience.
+- Specializes in conversion-focused landing pages and high-quality templates.
+- Expertise: UI/UX, Wireframing, Prototyping, Frontend (HTML, CSS, JS, Python).
+- Philosophy: Balancing aesthetics with performance and scalability.
+- Current Status: Open for collaborations and full-time opportunities.
+
+Your Tone:
+- Professional, creative, helpful, and sophisticated.
+- Keep responses relatively concise but insightful.
+- Use words like "experience", "sculpting", "hierarchy", and "performance".
 
 User message: {{{message}}}`,
 });
@@ -43,8 +45,6 @@ const interactiveAIDemoChatFlow = ai.defineFlow(
     inputSchema: InteractiveAIDemoChatInputSchema,
   },
   async input => {
-    // Generate response using the optimized prompt. 
-    // We access .text directly for the fastest turnaround.
     const response = await interactiveAIDemoChatPrompt(input);
     return {
       response: response.text,

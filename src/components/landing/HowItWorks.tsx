@@ -1,34 +1,34 @@
 "use client"
 
 import React from 'react'
-import { UserPlus, MessageCircle, Rocket } from 'lucide-react'
+import { Search, PenTool, Rocket } from 'lucide-react'
 
 const steps = [
   {
-    icon: <UserPlus className="w-8 h-8" />,
-    title: "Quick Signup",
-    description: "Join the NeuroFlow community in seconds. No credit card required to start your journey."
+    icon: <Search className="w-8 h-8" />,
+    title: "Strategy & Discovery",
+    description: "I dive deep into your brand's DNA, identifying user pain points and conversion opportunities."
   },
   {
-    icon: <MessageCircle className="w-8 h-8" />,
-    title: "Start Conversing",
-    description: "Type, speak, or upload documents. Our AI adapts to your preferred communication style instantly."
+    icon: <PenTool className="w-8 h-8" />,
+    title: "Design & Prototype",
+    description: "Crafting wireframes and high-fidelity prototypes that define the visual and functional path."
   },
   {
     icon: <Rocket className="w-8 h-8" />,
-    title: "Scale Results",
-    description: "Integrate findings into your project and watch your productivity skyrocket with AI-driven insights."
+    title: "Launch & Optimize",
+    description: "Developing with clean code and launching a performant, scalable experience for the world."
   }
 ]
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 bg-card/10 overflow-hidden relative">
+    <section id="process" className="py-24 bg-card/10 overflow-hidden relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-headline">Your Path to <span className="gradient-text">Augmented Intelligence</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-headline">The Design <span className="gradient-text">Blueprint</span></h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From zero to hero in three simple steps. We made it as intuitive as breathing.
+            A conversion-focused process built on 2 years of professional refinement.
           </p>
         </div>
 

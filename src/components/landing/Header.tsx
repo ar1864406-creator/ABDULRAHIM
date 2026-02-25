@@ -14,9 +14,9 @@ import {
 } from "@/components/ui/sheet"
 
 const navItems = [
-  { name: 'Features', href: '#features', id: 'features' },
-  { name: 'Demo', href: '#demo', id: 'demo' },
-  { name: 'How it Works', href: '#how-it-works', id: 'how-it-works' },
+  { name: 'Expertise', href: '#expertise', id: 'expertise' },
+  { name: 'AI Assistant', href: '#assistant', id: 'assistant' },
+  { name: 'Process', href: '#process', id: 'process' },
   { name: 'Testimonials', href: '#testimonials', id: 'testimonials' },
 ]
 
@@ -56,7 +56,7 @@ export function Header() {
             <Cpu className="w-6 h-6 text-white" />
           </div>
           <span className="text-xl font-bold tracking-tighter font-headline flex items-center">
-            NeuroFlow<span className="text-primary">AI</span>
+            Abdul Rahim<span className="text-primary">.</span>
             <span className="ml-1 w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           </span>
         </Link>
@@ -83,13 +83,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          {/* Desktop Buttons */}
           <div className="hidden sm:flex items-center gap-4">
-            <Button variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors">
-              Log In
-            </Button>
             <Button className="bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] text-white font-bold px-6 rounded-xl shadow-lg shadow-primary/20 transition-all duration-300 active:scale-95">
-              Start Free
+              Hire Me
             </Button>
           </div>
 
@@ -108,7 +104,7 @@ export function Header() {
                       <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
                         <Cpu className="w-5 h-5 text-white" />
                       </div>
-                      <span className="font-headline font-bold">NeuroFlow</span>
+                      <span className="font-headline font-bold">Abdul Rahim</span>
                     </div>
                   </SheetTitle>
                 </SheetHeader>
@@ -130,11 +126,8 @@ export function Header() {
                     ))}
                   </nav>
                   <div className="flex flex-col gap-4 pt-8 border-t border-white/10">
-                    <Button variant="outline" className="w-full border-white/10 glass-card text-foreground h-12 rounded-xl">
-                      Log In
-                    </Button>
                     <Button className="w-full bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] text-white font-bold h-12 rounded-xl shadow-lg shadow-primary/20 transition-all duration-300">
-                      Start Free
+                      Hire Me
                     </Button>
                   </div>
                 </div>
