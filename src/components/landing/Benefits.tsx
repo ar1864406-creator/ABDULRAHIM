@@ -5,57 +5,77 @@ import { Zap, Shield, Brain, Layers, MessageSquare, Code } from 'lucide-react'
 
 const benefits = [
   {
-    icon: <Brain className="w-10 h-10 text-primary" />,
-    title: "Infinite Knowledge",
-    description: "Access a vast reservoir of information updated in real-time, processed through our proprietary neural architecture."
+    icon: <Brain className="w-8 h-8" />,
+    color: "text-blue-400",
+    bg: "bg-blue-400/10",
+    title: "Neural Synthesis",
+    description: "Deep-layer learning models that synthesize information from trillions of data points in milliseconds."
   },
   {
-    icon: <Zap className="w-10 h-10 text-secondary" />,
-    title: "Instant Execution",
-    description: "Get complex tasks done in seconds. From code generation to market analysis, NeuroFlow delivers speed without compromise."
+    icon: <Zap className="w-8 h-8" />,
+    color: "text-purple-400",
+    bg: "bg-purple-400/10",
+    title: "Instant Velocity",
+    description: "Built for speed. Our proprietary engine processes complex logic paths faster than biological thought."
   },
   {
-    icon: <Shield className="w-10 h-10 text-primary" />,
-    title: "Privacy First",
-    description: "Your data is encrypted end-to-end. We never train our public models on your proprietary or sensitive information."
+    icon: <Shield className="w-8 h-8" />,
+    color: "text-blue-400",
+    bg: "bg-blue-400/10",
+    title: "Zero-Knowledge",
+    description: "Enterprise-grade privacy with zero-knowledge architecture. Your data never leaves your secure enclave."
   },
   {
-    icon: <Layers className="w-10 h-10 text-secondary" />,
-    title: "Multimodal Power",
-    description: "Understand and generate text, code, images, and data visualizations within a single fluid conversation thread."
+    icon: <Layers className="w-8 h-8" />,
+    color: "text-purple-400",
+    bg: "bg-purple-400/10",
+    title: "Multi-Modal Flux",
+    description: "Seamlessly transition between code, creative writing, and data visualization in a single unified flow."
   },
   {
-    icon: <MessageSquare className="w-10 h-10 text-primary" />,
-    title: "Natural Nuance",
-    description: "Experience conversations that feel human. NeuroFlow understands sarcasm, subtext, and complex instructions."
+    icon: <MessageSquare className="w-8 h-8" />,
+    color: "text-blue-400",
+    bg: "bg-blue-400/10",
+    title: "Semantic Nuance",
+    description: "Understands context, tone, and intent. NeuroFlow listens to what you mean, not just what you say."
   },
   {
-    icon: <Code className="w-10 h-10 text-secondary" />,
-    title: "Developer Ready",
-    description: "Seamless API integration with support for all major frameworks. Build your own AI-powered tools on our backbone."
+    icon: <Code className="w-8 h-8" />,
+    color: "text-purple-400",
+    bg: "bg-purple-400/10",
+    title: "Deep Integration",
+    description: "Native SDKs for every major ecosystem. Deploy AI-powered functionality into your stack instantly."
   }
 ]
 
 export function Benefits() {
   return (
-    <section id="features" className="py-24 bg-background">
+    <section id="features" className="py-32 relative">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-base font-bold text-primary uppercase tracking-[0.2em] mb-4">Core Advantages</h2>
-          <h3 className="text-4xl md:text-5xl font-bold font-headline">Designed for those who <span className="text-secondary">demand more.</span></h3>
+        <div className="max-w-4xl mb-24">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-morphism text-secondary text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
+            Superior Advantages
+          </div>
+          <h2 className="text-5xl md:text-7xl font-bold font-headline leading-tight">
+            Designed for those who <br />
+            <span className="text-muted-foreground">redefine</span> <span className="gradient-text">the impossible.</span>
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, i) => (
             <div 
               key={i} 
-              className="group p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 hover:translate-y-[-4px]"
+              className="group glass-card p-10 rounded-[2rem] hover:translate-y-[-8px] transition-all duration-500 relative overflow-hidden"
             >
-              <div className="mb-6 p-3 w-fit rounded-xl bg-background border border-border/50 group-hover:neon-glow-primary transition-all">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className={`mb-8 p-4 w-fit rounded-2xl ${benefit.bg} ${benefit.color} border border-white/5 group-hover:scale-110 transition-transform duration-500`}>
                 {benefit.icon}
               </div>
-              <h4 className="text-xl font-bold mb-3 font-headline">{benefit.title}</h4>
-              <p className="text-muted-foreground leading-relaxed">
+              
+              <h4 className="text-2xl font-bold mb-4 font-headline group-hover:text-primary transition-colors">{benefit.title}</h4>
+              <p className="text-muted-foreground leading-relaxed font-light text-lg">
                 {benefit.description}
               </p>
             </div>

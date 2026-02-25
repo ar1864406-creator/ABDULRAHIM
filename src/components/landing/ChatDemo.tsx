@@ -15,7 +15,7 @@ type Message = {
 
 export function ChatDemo() {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'ai', text: "Hello! I'm NeuroFlow AI. How can I help you today?" }
+    { role: 'ai', text: "Welcome to the NeuroFlow testing chamber. I'm initialized and ready to assist. What's on your mind?" }
   ])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -39,7 +39,7 @@ export function ChatDemo() {
       const result = await interactiveAIDemoChat({ message: userMessage })
       setMessages(prev => [...prev, { role: 'ai', text: result.response }])
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'ai', text: "Sorry, I'm having trouble connecting right now. Please try again." }])
+      setMessages(prev => [...prev, { role: 'ai', text: "Systems currently recalibrating. Please retry in a moment." }])
     } finally {
       setIsLoading(false)
     }
@@ -50,104 +50,107 @@ export function ChatDemo() {
   }
 
   return (
-    <section id="demo" className="py-24 bg-card/30 border-y border-border/50">
+    <section id="demo" className="py-32 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 font-headline">Experience the <span className="text-primary">Difference</span></h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Interact with our core engine below. See how NeuroFlow understands nuance and context.
+        <div className="text-center mb-24">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 font-headline tracking-tight">The Core <span className="text-primary">Experience.</span></h2>
+          <p className="text-muted-foreground text-xl max-w-2xl mx-auto font-light">
+            Directly interface with our neural engine. Observe the clarity, the speed, and the contextual depth.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Card className="border-border/50 shadow-2xl bg-background/50 overflow-hidden neon-glow-primary">
-            <CardHeader className="border-b border-border/50 bg-muted/20 px-6 py-4 flex flex-row items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center pulse-primary">
-                  <Bot className="w-6 h-6 text-white" />
+        <div className="max-w-5xl mx-auto">
+          <Card className="glass-card border-white/10 rounded-[2.5rem] overflow-hidden neon-glow-primary">
+            <CardHeader className="border-b border-white/5 bg-white/5 px-8 py-6 flex flex-row items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center animate-pulse">
+                  <Bot className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <CardTitle className="text-base font-bold">NeuroFlow Assistant</CardTitle>
-                  <CardDescription className="text-xs text-primary font-medium flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                    Online & Thinking
+                  <CardTitle className="text-lg font-bold font-headline">NeuroFlow V2.5</CardTitle>
+                  <CardDescription className="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
+                    Secure Link Established
                   </CardDescription>
                 </div>
               </div>
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-border" />
-                <div className="w-3 h-3 rounded-full bg-border" />
-                <div className="w-3 h-3 rounded-full bg-border" />
+              <div className="flex gap-3">
+                {[1, 2, 3].map(i => <div key={i} className="w-2 h-2 rounded-full bg-white/10" />)}
               </div>
             </CardHeader>
             <CardContent className="p-0">
               <div 
                 ref={scrollRef}
-                className="h-[400px] overflow-y-auto p-6 space-y-6 scrollbar-thin scrollbar-thumb-primary/20"
+                className="h-[500px] overflow-y-auto p-10 space-y-8 scrollbar-hide"
               >
                 {messages.map((msg, i) => (
                   <div 
                     key={i} 
-                    className={`flex gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'} animate-fade-in-up`}
+                    className={`flex gap-6 ${msg.role === 'user' ? 'flex-row-reverse' : 'flex-row'} animate-fade-in-up`}
                   >
-                    <Avatar className={`w-8 h-8 ${msg.role === 'ai' ? 'bg-primary' : 'bg-secondary'}`}>
+                    <Avatar className={`w-10 h-10 rounded-2xl ${msg.role === 'ai' ? 'bg-primary' : 'bg-secondary'}`}>
                       <AvatarFallback className="text-white">
-                        {msg.role === 'ai' ? <Bot className="w-4 h-4" /> : <User className="w-4 h-4" />}
+                        {msg.role === 'ai' ? <Bot className="w-5 h-5" /> : <User className="w-5 h-5" />}
                       </AvatarFallback>
                     </Avatar>
-                    <div className={`max-w-[80%] rounded-2xl p-4 text-sm ${
+                    <div className={`max-w-[75%] rounded-[2rem] p-6 text-base leading-relaxed ${
                       msg.role === 'ai' 
-                        ? 'bg-muted/50 text-foreground rounded-tl-none border border-border/50' 
-                        : 'bg-primary text-white rounded-tr-none'
+                        ? 'glass-morphism text-foreground rounded-tl-none' 
+                        : 'bg-primary text-white rounded-tr-none neon-glow-primary'
                     }`}>
                       {msg.text}
                     </div>
                   </div>
                 ))}
                 {isLoading && (
-                  <div className="flex gap-4 flex-row animate-fade-in-up">
-                    <Avatar className="w-8 h-8 bg-primary">
-                      <AvatarFallback><Bot className="w-4 h-4 text-white" /></AvatarFallback>
+                  <div className="flex gap-6 flex-row animate-fade-in-up">
+                    <Avatar className="w-10 h-10 rounded-2xl bg-primary">
+                      <AvatarFallback><Bot className="w-5 h-5 text-white" /></AvatarFallback>
                     </Avatar>
-                    <div className="bg-muted/50 rounded-2xl p-4 rounded-tl-none border border-border/50">
-                      <Loader2 className="w-5 h-5 animate-spin text-primary" />
+                    <div className="glass-morphism rounded-[2rem] p-6 rounded-tl-none">
+                      <Loader2 className="w-6 h-6 animate-spin text-primary" />
                     </div>
                   </div>
                 )}
               </div>
               
-              <div className="p-4 border-t border-border/50 space-y-4 bg-muted/5">
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs text-muted-foreground mr-2 self-center">Try:</span>
-                  {["Analyze this trend", "Explain quantum physics", "Write a haiku"].map(q => (
+              <div className="p-8 border-t border-white/5 space-y-6 bg-white/5">
+                <div className="flex flex-wrap gap-3">
+                  <span className="text-xs font-bold text-muted-foreground mr-2 self-center uppercase tracking-widest">Inspirations:</span>
+                  {["Quantum Dynamics", "Bio-Ethics AI", "Neural Networks"].map(q => (
                     <button 
                       key={q} 
                       onClick={() => handleQuickPrompt(q)}
-                      className="text-xs px-3 py-1.5 rounded-full bg-muted border border-border/50 hover:bg-primary/10 hover:border-primary/50 transition-colors"
+                      className="text-xs px-4 py-2 rounded-xl glass-morphism hover:bg-white/10 transition-colors"
                     >
                       {q}
                     </button>
                   ))}
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-4">
                   <Input 
-                    placeholder="Message NeuroFlow..." 
-                    className="flex-1 bg-background border-border/50 h-12 rounded-xl focus-visible:ring-primary"
+                    placeholder="Enter command or query..." 
+                    className="flex-1 glass-morphism border-transparent h-14 rounded-2xl focus-visible:ring-primary px-6"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   />
                   <Button 
-                    className="h-12 w-12 rounded-xl bg-primary hover:bg-primary/90 neon-glow-primary p-0"
+                    className="h-14 w-14 rounded-2xl bg-primary hover:bg-primary/90 neon-glow-primary p-0 flex-shrink-0"
                     onClick={handleSend}
                     disabled={isLoading}
                   >
-                    <Send className="w-5 h-5" />
+                    <Send className="w-6 h-6" />
                   </Button>
                 </div>
-                <p className="text-[10px] text-center text-muted-foreground uppercase tracking-widest font-bold">
-                  Powered by NeuroFlow Neural Engine V2.5
-                </p>
+                <div className="flex justify-between items-center px-2">
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-[0.4em] font-bold">
+                    Terminal Status: Encrypted
+                  </p>
+                  <p className="text-[10px] text-primary/50 uppercase tracking-[0.4em] font-bold">
+                    NeuroFlow Core v2.5.0
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
