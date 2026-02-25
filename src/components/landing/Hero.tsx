@@ -29,7 +29,7 @@ export function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-              <Button size="lg" className="h-16 px-10 text-lg bg-primary hover:bg-primary/90 rounded-2xl neon-glow-primary transition-all duration-300 group">
+              <Button size="lg" className="h-16 px-10 text-lg bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] rounded-2xl neon-glow-primary transition-all duration-300 group">
                 Begin Experience <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button size="lg" variant="outline" className="h-16 px-10 text-lg rounded-2xl border-white/10 glass-morphism text-white hover:bg-white/5">
