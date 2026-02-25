@@ -68,8 +68,8 @@ export function ChatDemo() {
                 </div>
                 <div>
                   <CardTitle className="text-lg font-bold font-headline">NeuroFlow V2.5</CardTitle>
-                  <CardDescription className="text-xs text-primary font-bold uppercase tracking-widest flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
+                  <CardDescription className="text-xs text-emerald-500 font-bold uppercase tracking-widest flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                     Secure Link Established
                   </CardDescription>
                 </div>
