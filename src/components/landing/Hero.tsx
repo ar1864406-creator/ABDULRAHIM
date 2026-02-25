@@ -2,12 +2,12 @@
 
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Sparkles, Shield, Zap, Code, Layout } from 'lucide-react'
+import { ArrowRight, Sparkles, Layout, Code } from 'lucide-react'
 import Image from 'next/image'
 import { PlaceHolderImages } from '@/lib/placeholder-images'
 
 export function Hero() {
-  const heroImg = PlaceHolderImages.find(img => img.id === 'hero-abstract')
+  const profileImg = PlaceHolderImages.find(img => img.id === 'hero-profile')
 
   return (
     <section className="relative pt-48 pb-24 overflow-hidden">
@@ -50,15 +50,14 @@ export function Hero() {
           </div>
 
           <div className="flex-1 relative w-full group perspective-container">
-            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.5)] animate-float-slow transition-transform duration-700 group-hover:scale-[1.02] card-3d">
-              <div className="inner-3d">
+            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.5)] animate-float-slow transition-transform duration-700 group-hover:scale-[1.02] card-3d aspect-square sm:aspect-auto">
+              <div className="inner-3d relative w-full h-[500px] lg:h-[600px]">
                 <Image 
-                  src={heroImg?.imageUrl || ''} 
-                  alt="Abdul Rahim Portfolio Preview" 
-                  width={1200}
-                  height={1200}
-                  className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
-                  data-ai-hint="portfolio design"
+                  src={profileImg?.imageUrl || ''} 
+                  alt="Abdul Rahim Profile" 
+                  fill
+                  className="object-cover transition-all duration-700"
+                  data-ai-hint="portrait male"
                   priority
                 />
               </div>
