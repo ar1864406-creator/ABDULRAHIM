@@ -2,7 +2,6 @@ import { Header } from '@/components/landing/Header'
 import { Hero } from '@/components/landing/Hero'
 import { Benefits } from '@/components/landing/Benefits'
 import { HowItWorks } from '@/components/landing/HowItWorks'
-import { Testimonials } from '@/components/landing/Testimonials'
 import { Footer } from '@/components/landing/Footer'
 import { WelcomeNotification } from '@/components/landing/WelcomeNotification'
 import { Sparkles } from 'lucide-react'
@@ -24,7 +23,6 @@ export default function Home() {
         <Hero />
         <Benefits />
         <HowItWorks />
-        <Testimonials />
         
         {/* Final CTA Section */}
         <section className="py-32 relative overflow-hidden">
@@ -35,23 +33,23 @@ export default function Home() {
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#FFF0C4] text-xs font-bold uppercase tracking-widest mb-8 animate-pulse">
                   <Sparkles className="w-4 h-4" />
-                  <span>Join the elite 1%</span>
+                  <span>Open for Opportunities</span>
                 </div>
                 
                 <h2 className="text-5xl md:text-7xl font-bold mb-8 font-headline leading-tight">
-                  Ready to flow <span className="gradient-text">higher?</span>
+                  Ready to start a <span className="gradient-text">project?</span>
                 </h2>
                 
                 <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-                  Experience the pinnacle of AI productivity. NeuroFlow is more than a tool; it's your cognitive edge.
+                  Let's collaborate to build something exceptional. I'm currently accepting new freelance projects and full-time roles.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                  <button className="h-16 px-12 text-lg rounded-2xl bg-primary text-white font-bold clay-button hover:scale-105 transition-all duration-300">
-                    Get Early Access
+                  <button className="h-16 px-12 text-lg rounded-2xl bg-primary text-white font-bold clay-button hover:bg-[#FFF0C4] hover:text-[#1a0301] transition-all duration-300">
+                    Get in Touch
                   </button>
                   <button className="h-16 px-12 text-lg rounded-2xl bg-white/5 border border-white/10 text-foreground font-bold hover:bg-white/10 transition-all duration-300">
-                    Watch Keynote
+                    View Resume
                   </button>
                 </div>
               </div>

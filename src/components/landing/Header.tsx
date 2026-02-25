@@ -16,7 +16,6 @@ import {
 const navItems = [
   { name: 'Expertise', href: '#expertise', id: 'expertise' },
   { name: 'Process', href: '#process', id: 'process' },
-  { name: 'Testimonials', href: '#testimonials', id: 'testimonials' },
 ]
 
 export function Header() {
