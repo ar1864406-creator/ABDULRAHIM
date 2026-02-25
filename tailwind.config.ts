@@ -87,6 +87,18 @@ export default {
         'float': {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        'light-sweep': {
+          '0%': { transform: 'translateX(-100%) skewX(-25deg)' },
+          '30%, 100%': { transform: 'translateX(200%) skewX(-25deg)' },
+        },
+        'typewriter': {
+          'from': { width: '0' },
+          'to': { width: '100%' },
+        },
+        'expand-line': {
+          '0%': { width: '0', opacity: '0' },
+          '100%': { width: '100%', opacity: '1' }
         }
       },
       animation: {
@@ -94,6 +106,9 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
+        'light-sweep': 'light-sweep 2.5s cubic-bezier(0.23, 1, 0.32, 1) infinite',
+        'typewriter': 'typewriter 1.5s steps(40, end) forwards',
+        'expand-line': 'expand-line 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards'
       },
     },
   },
