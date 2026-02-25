@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 50 41% 87%; /* #ECE7D1 */
-    --foreground: 40 20% 15%;
-    --card: 45 41% 75%; /* #DBCEA5 */
-    --card-foreground: 40 20% 10%;
-    --popover: 50 41% 90%;
-    --popover-foreground: 40 20% 10%;
-    --primary: 82 12% 54%; /* #8E977D (Sage) - Now Primary */
-    --primary-foreground: 50 41% 95%;
-    --secondary: 40 27% 43%; /* #8A7650 (Gold) - Now Secondary */
-    --secondary-foreground: 50 41% 95%;
-    --muted: 45 30% 80%;
-    --muted-foreground: 40 15% 40%;
-    --accent: 82 12% 54%;
-    --accent-foreground: 50 41% 95%;
+    --background: 4 91% 10%; /* #1a0301 (Darker shade of #3E0703 for depth) */
+    --foreground: 45 100% 88%; /* #FFF0C4 (Cream) */
+    --card: 3 91% 15%; /* Darker Maroon */
+    --card-foreground: 45 100% 88%;
+    --popover: 4 91% 10%;
+    --popover-foreground: 45 100% 88%;
+    --primary: 4 90% 29%; /* #8C1007 (Crimson) */
+    --primary-foreground: 45 100% 88%;
+    --secondary: 3 91% 21%; /* #660B05 (Maroon) */
+    --secondary-foreground: 45 100% 88%;
+    --muted: 3 91% 15%;
+    --muted-foreground: 45 40% 70%;
+    --accent: 4 90% 29%;
+    --accent-foreground: 45 100% 88%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 20% 70%;
-    --input: 40 20% 70%;
-    --ring: 82 12% 54%;
+    --border: 4 91% 20%;
+    --input: 4 91% 20%;
+    --ring: 4 90% 29%;
     --radius: 1rem;
   }
 }
@@ -40,24 +40,24 @@
 }
 
 .glass-morphism {
-  @apply bg-white/20 backdrop-blur-xl border border-black/5;
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
 }
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
-  @apply backdrop-blur-lg border border-black/5 shadow-xl;
+  background: linear-gradient(135deg, rgba(140, 16, 7, 0.15) 0%, rgba(62, 7, 3, 0.4) 100%);
+  @apply backdrop-blur-lg border border-white/5 shadow-2xl;
 }
 
 .neon-glow-primary {
-  box-shadow: 0 0 30px -10px hsl(var(--primary) / 0.4);
+  box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.5);
 }
 
 .neon-glow-secondary {
-  box-shadow: 0 0 30px -10px hsl(var(--secondary) / 0.4);
+  box-shadow: 0 0 40px -10px hsl(var(--secondary) / 0.4);
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground to-primary bg-[length:200%_auto] animate-gradient;
 }
 
 @keyframes gradient {
@@ -71,10 +71,10 @@
 
 .mesh-gradient {
   background-image: 
-    radial-gradient(at 0% 0%, hsla(82, 12%, 54%, 0.2) 0, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(40, 27%, 43%, 0.1) 0, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(82, 12%, 54%, 0.15) 0, transparent 50%),
-    radial-gradient(at 0% 100%, hsla(40, 27%, 43%, 0.05) 0, transparent 50%);
+    radial-gradient(at 0% 0%, hsla(4, 90%, 29%, 0.3) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(3, 91%, 21%, 0.2) 0, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(4, 91%, 13%, 0.4) 0, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(45, 100%, 88%, 0.05) 0, transparent 50%);
 }
 
 .mask-fade-out {
@@ -92,4 +92,12 @@
 
 .animate-float-delayed {
   animation: float 10s ease-in-out infinite 2s;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
