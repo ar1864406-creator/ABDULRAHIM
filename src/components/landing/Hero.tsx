@@ -24,12 +24,12 @@ export function Hero() {
     // High density particles with increased visibility
     const newParticles = [...Array(80)].map((_, i) => ({
       id: i,
-      size: Math.random() * 4 + 2, // Increased size range
+      size: Math.random() * 4 + 2,
       top: Math.random() * 100 + '%',
       left: Math.random() * 100 + '%',
       delay: Math.random() * -20 + 's',
       duration: Math.random() * 15 + 15 + 's',
-      opacity: Math.random() * 0.5 + 0.3 // Increased opacity base and range
+      opacity: Math.random() * 0.5 + 0.3
     }))
     setParticles(newParticles)
   }, [])
@@ -94,19 +94,36 @@ export function Hero() {
           </div>
 
           <div className="flex-1 relative w-full group perspective-container">
-            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.5)] animate-float-slow transition-transform duration-700 group-hover:scale-[1.02] card-3d aspect-square sm:aspect-auto">
+            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.5)] animate-float-slow transition-transform duration-700 group-hover:scale-[1.05] card-3d aspect-square sm:aspect-auto">
+              {/* 3D Reflection layer */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none z-20" />
+              
               <div className="inner-3d relative w-full h-[500px] lg:h-[600px]">
                 <Image 
                   src={profileImg?.imageUrl || ''} 
                   alt="Abdul Rahim Profile" 
                   fill
-                  className="object-cover transition-all duration-700"
+                  className="object-cover transition-all duration-700 brightness-90 group-hover:brightness-110"
                   data-ai-hint="portrait male"
                   priority
                 />
               </div>
+              
+              {/* Floating Content Badge inside 3D space */}
+              <div className="absolute bottom-10 left-10 inner-3d-deep z-30 hidden sm:block">
+                <div className="glass-card p-4 rounded-2xl border border-white/20 shadow-2xl backdrop-blur-md">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[10px] font-bold uppercase tracking-widest">Creative Engineer</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
             </div>
+            
+            {/* Background 3D Shadow/Glow */}
+            <div className="absolute -inset-4 bg-primary/20 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
           </div>
         </div>
       </div>
