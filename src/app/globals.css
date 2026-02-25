@@ -33,6 +33,10 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 selection:text-primary overflow-x-hidden;
+    cursor: none;
+  }
+  a, button, [role="button"], input, textarea {
+    cursor: none !important;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
@@ -121,4 +125,31 @@
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.15s ease-out, background-color 0.3s ease;
+}
+
+.custom-cursor-inner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: hsl(var(--foreground));
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
 }
