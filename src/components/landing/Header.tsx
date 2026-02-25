@@ -15,7 +15,6 @@ import {
 
 const navItems = [
   { name: 'Expertise', href: '#expertise', id: 'expertise' },
-  { name: 'AI Assistant', href: '#assistant', id: 'assistant' },
   { name: 'Process', href: '#process', id: 'process' },
   { name: 'Testimonials', href: '#testimonials', id: 'testimonials' },
 ]

@@ -1,7 +1,6 @@
 import { Header } from '@/components/landing/Header'
 import { Hero } from '@/components/landing/Hero'
 import { Benefits } from '@/components/landing/Benefits'
-import { ChatDemo } from '@/components/landing/ChatDemo'
 import { HowItWorks } from '@/components/landing/HowItWorks'
 import { Testimonials } from '@/components/landing/Testimonials'
 import { Footer } from '@/components/landing/Footer'
@@ -24,7 +23,6 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <Benefits />
-        <ChatDemo />
         <HowItWorks />
         <Testimonials />
         

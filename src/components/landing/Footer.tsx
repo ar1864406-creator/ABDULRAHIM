@@ -39,7 +39,6 @@ export function Footer() {
             <h5 className="font-bold mb-6 font-headline">Navigation</h5>
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li><Link href="#expertise" className="hover:text-primary transition-colors">Expertise</Link></li>
-              <li><Link href="#assistant" className="hover:text-primary transition-colors">AI Assistant</Link></li>
               <li><Link href="#process" className="hover:text-primary transition-colors">Process</Link></li>
               <li><Link href="#testimonials" className="hover:text-primary transition-colors">Testimonials</Link></li>
             </ul>
