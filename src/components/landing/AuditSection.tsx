@@ -84,10 +84,6 @@ export function AuditSection() {
                   className="object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700"
                   data-ai-hint="dashboard ui"
                 />
-                
-                {/* HUD Scanning Line */}
-                <div className="absolute left-0 w-full h-1 bg-primary/40 shadow-[0_0_15px_hsl(var(--primary))] animate-scan pointer-events-none z-10" />
-                
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
 

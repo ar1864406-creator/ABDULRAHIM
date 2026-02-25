@@ -68,9 +68,8 @@ export function Benefits() {
             <div 
               key={i} 
               className={cn(
-                "group clay-card p-10 rounded-[2.5rem] transition-all duration-500 relative overflow-hidden card-3d opacity-0 animate-fade-in-up",
+                "group clay-card p-10 rounded-[2.5rem] transition-all duration-500 relative overflow-hidden card-3d",
               )}
-              style={{ animationDelay: `${i * 150}ms`, animationFillMode: 'forwards' }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
