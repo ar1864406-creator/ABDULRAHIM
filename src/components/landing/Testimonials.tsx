@@ -48,7 +48,7 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto px-12">
+        <div className="max-w-6xl mx-auto px-12 perspective-container">
           <Carousel className="w-full">
             <CarouselContent>
               {testimonials.map((t, i) => {
@@ -56,9 +56,9 @@ export function Testimonials() {
                 return (
                   <CarouselItem key={i}>
                     <div className="p-4">
-                      <Card className="glass-card rounded-[3rem] border-white/5 overflow-hidden group">
+                      <Card className="glass-card rounded-[3rem] border-white/5 overflow-hidden group card-3d">
                         <Quote className="absolute top-12 right-12 w-24 h-24 text-primary/5 group-hover:text-primary/10 transition-colors duration-500" />
-                        <CardContent className="p-16 flex flex-col items-center text-center relative z-10">
+                        <CardContent className="p-16 flex flex-col items-center text-center relative z-10 inner-3d">
                           <div className="flex gap-2 mb-10">
                             {[1, 2, 3, 4, 5].map(star => (
                               <Star key={star} className="w-5 h-5 fill-primary text-primary animate-pulse" style={{ animationDelay: `${star * 0.2}s` }} />
@@ -69,7 +69,7 @@ export function Testimonials() {
                             "{t.quote}"
                           </p>
                           
-                          <Avatar className="w-20 h-20 border-2 border-primary/20 mb-6 rounded-2xl group-hover:scale-110 transition-transform duration-500">
+                          <Avatar className="w-20 h-20 border-2 border-primary/20 mb-6 rounded-2xl transition-transform duration-500">
                             <AvatarImage src={avatarImg?.imageUrl} className="object-cover" />
                             <AvatarFallback>{t.name[0]}</AvatarFallback>
                           </Avatar>

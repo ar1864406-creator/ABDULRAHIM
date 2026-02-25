@@ -94,6 +94,27 @@
   animation: float 10s ease-in-out infinite 2s;
 }
 
+/* 3D Effects */
+.perspective-container {
+  perspective: 2000px;
+}
+
+.card-3d {
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover {
+  transform: translateY(-15px) rotateX(8deg) rotateY(-8deg);
+  box-shadow: 
+    -20px 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px -10px hsl(var(--primary) / 0.3);
+}
+
+.inner-3d {
+  transform: translateZ(30px);
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

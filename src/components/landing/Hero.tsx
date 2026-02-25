@@ -49,17 +49,19 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex-1 relative w-full group">
-            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.5)] animate-float-slow transition-transform duration-700 group-hover:scale-[1.02]">
-              <Image 
-                src={heroImg?.imageUrl || ''} 
-                alt={heroImg?.description || ''} 
-                width={1200}
-                height={1200}
-                className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
-                data-ai-hint={heroImg?.imageHint}
-                priority
-              />
+          <div className="flex-1 relative w-full group perspective-container">
+            <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.5)] animate-float-slow transition-transform duration-700 group-hover:scale-[1.02] card-3d">
+              <div className="inner-3d">
+                <Image 
+                  src={heroImg?.imageUrl || ''} 
+                  alt={heroImg?.description || ''} 
+                  width={1200}
+                  height={1200}
+                  className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
+                  data-ai-hint={heroImg?.imageHint}
+                  priority
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
             </div>
             

@@ -62,22 +62,24 @@ export function Benefits() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-container">
           {benefits.map((benefit, i) => (
             <div 
               key={i} 
-              className="group glass-card p-10 rounded-[2rem] hover:translate-y-[-8px] transition-all duration-500 relative overflow-hidden"
+              className="group glass-card p-10 rounded-[2rem] transition-all duration-500 relative overflow-hidden card-3d"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className={`mb-8 p-4 w-fit rounded-2xl ${benefit.bg} ${benefit.color} border border-white/5 group-hover:scale-110 transition-transform duration-500`}>
+              <div className={`mb-8 p-4 w-fit rounded-2xl ${benefit.bg} ${benefit.color} border border-white/5 transition-transform duration-500 inner-3d`}>
                 {benefit.icon}
               </div>
               
-              <h4 className="text-2xl font-bold mb-4 font-headline group-hover:text-primary transition-colors">{benefit.title}</h4>
-              <p className="text-muted-foreground leading-relaxed font-light text-lg">
-                {benefit.description}
-              </p>
+              <div className="inner-3d">
+                <h4 className="text-2xl font-bold mb-4 font-headline group-hover:text-primary transition-colors">{benefit.title}</h4>
+                <p className="text-muted-foreground leading-relaxed font-light text-lg">
+                  {benefit.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
