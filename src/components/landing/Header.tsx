@@ -61,7 +61,6 @@ export function Header({ className }: HeaderProps) {
           </div>
           <span className="text-xl font-bold tracking-tighter font-headline flex items-center">
             Abdul Rahim<span className="text-primary">.</span>
-            <span className="ml-1 w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           </span>
         </Link>
         

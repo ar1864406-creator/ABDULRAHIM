@@ -56,13 +56,6 @@ export function CustomCursor() {
           transform: `translate(${position.x - 10}px, ${position.y - 10}px)` 
         }}
       />
-      <div 
-        className="custom-cursor-inner"
-        style={{ 
-          left: `${position.x}px`,
-          top: `${position.y}px`
-        }}
-      />
     </>
   )
 }

@@ -16,7 +16,6 @@ export function Footer() {
               </div>
               <span className="text-xl font-bold tracking-tighter font-headline flex items-center">
                 Abdul Rahim<span className="text-primary">.</span>
-                <span className="ml-1 w-1 h-1 rounded-full bg-white animate-pulse" />
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
