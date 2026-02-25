@@ -69,6 +69,14 @@
   @apply rounded-2xl;
 }
 
+.glass-card {
+  background: rgba(26, 3, 1, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 240, 196, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
 .neon-glow-primary {
   box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.5);
 }
