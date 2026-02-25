@@ -53,7 +53,7 @@ export function Benefits() {
     <section id="features" className="py-32 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-morphism text-foreground text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-foreground text-[10px] font-bold uppercase tracking-[0.3em] mb-6 border border-white/10">
             Superior Advantages
           </div>
           <h2 className="text-5xl md:text-7xl font-bold font-headline leading-tight">
@@ -66,7 +66,7 @@ export function Benefits() {
           {benefits.map((benefit, i) => (
             <div 
               key={i} 
-              className="group glass-card p-10 rounded-[2rem] transition-all duration-500 relative overflow-hidden card-3d"
+              className="group clay-card p-10 rounded-[2.5rem] transition-all duration-500 relative overflow-hidden card-3d"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               

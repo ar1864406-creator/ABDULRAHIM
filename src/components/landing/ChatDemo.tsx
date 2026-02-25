@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Send, Bot, User, Loader2, Sparkles } from 'lucide-react'
+import { Send, Bot, User, Loader2 } from 'lucide-react'
 import { interactiveAIDemoChat } from '@/ai/flows/interactive-ai-demo-chat'
 
 type Message = {
@@ -60,7 +60,7 @@ export function ChatDemo() {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <Card className="glass-card border-white/10 rounded-[2.5rem] overflow-hidden neon-glow-primary">
+          <Card className="clay-card border-none rounded-[3rem] overflow-hidden">
             <CardHeader className="border-b border-white/5 bg-white/5 px-8 py-6 flex flex-row items-center justify-between">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center animate-pulse">
@@ -95,8 +95,8 @@ export function ChatDemo() {
                     </Avatar>
                     <div className={`max-w-[75%] rounded-[2rem] p-6 text-base leading-relaxed ${
                       msg.role === 'ai' 
-                        ? 'glass-morphism text-foreground rounded-tl-none' 
-                        : 'bg-primary text-white rounded-tr-none neon-glow-primary'
+                        ? 'bg-white/5 border border-white/10 text-foreground rounded-tl-none' 
+                        : 'clay-card-primary text-white rounded-tr-none'
                     }`}>
                       {msg.text}
                     </div>
@@ -107,7 +107,7 @@ export function ChatDemo() {
                     <Avatar className="w-10 h-10 rounded-2xl bg-primary">
                       <AvatarFallback><Bot className="w-5 h-5 text-white" /></AvatarFallback>
                     </Avatar>
-                    <div className="glass-morphism rounded-[2rem] p-6 rounded-tl-none">
+                    <div className="bg-white/5 border border-white/10 rounded-[2rem] p-6 rounded-tl-none">
                       <Loader2 className="w-6 h-6 animate-spin text-primary" />
                     </div>
                   </div>
@@ -121,7 +121,7 @@ export function ChatDemo() {
                     <button 
                       key={q} 
                       onClick={() => handleQuickPrompt(q)}
-                      className="text-xs px-4 py-2 rounded-xl glass-morphism hover:bg-white/10 transition-colors"
+                      className="text-xs px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
                     >
                       {q}
                     </button>
@@ -130,13 +130,13 @@ export function ChatDemo() {
                 <div className="flex gap-4">
                   <Input 
                     placeholder="Enter command or query..." 
-                    className="flex-1 glass-morphism border-transparent h-14 rounded-2xl focus-visible:ring-primary px-6"
+                    className="flex-1 bg-black/20 border-white/10 h-14 rounded-2xl focus-visible:ring-primary px-6"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   />
                   <Button 
-                    className="h-14 w-14 rounded-2xl bg-primary hover:bg-primary/90 neon-glow-primary p-0 flex-shrink-0"
+                    className="h-14 w-14 rounded-2xl bg-primary hover:bg-primary/90 clay-button p-0 flex-shrink-0"
                     onClick={handleSend}
                     disabled={isLoading}
                   >

@@ -31,11 +31,11 @@ export default function Home() {
         {/* Final CTA Section */}
         <section className="py-32 relative overflow-hidden">
           <div className="container mx-auto px-6 relative">
-            <div className="max-w-5xl mx-auto glass-card rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden group">
+            <div className="max-w-5xl mx-auto clay-card rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-morphism text-foreground text-xs font-bold uppercase tracking-widest mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#FFF0C4] text-xs font-bold uppercase tracking-widest mb-8 animate-pulse">
                   <Sparkles className="w-4 h-4" />
                   <span>Join the elite 1%</span>
                 </div>
@@ -49,10 +49,10 @@ export default function Home() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                  <button className="h-16 px-12 text-lg rounded-2xl bg-primary text-white font-bold neon-glow-primary hover:scale-105 transition-all duration-300">
+                  <button className="h-16 px-12 text-lg rounded-2xl bg-primary text-white font-bold clay-button hover:scale-105 transition-all duration-300">
                     Get Early Access
                   </button>
-                  <button className="h-16 px-12 text-lg rounded-2xl glass-morphism text-foreground font-bold hover:bg-white/10 transition-all duration-300">
+                  <button className="h-16 px-12 text-lg rounded-2xl bg-white/5 border border-white/10 text-foreground font-bold hover:bg-white/10 transition-all duration-300">
                     Watch Keynote
                   </button>
                 </div>
