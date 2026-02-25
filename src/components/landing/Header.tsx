@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useState, useEffect } from 'react'
@@ -56,8 +55,9 @@ export function Header() {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center neon-glow-primary group-hover:rotate-12 transition-all duration-500">
             <Cpu className="w-6 h-6 text-white" />
           </div>
-          <span className="text-xl font-bold tracking-tighter font-headline">
+          <span className="text-xl font-bold tracking-tighter font-headline flex items-center">
             NeuroFlow<span className="text-primary">AI</span>
+            <span className="ml-1 w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           </span>
         </Link>
         

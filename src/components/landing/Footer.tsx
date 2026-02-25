@@ -14,7 +14,10 @@ export function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center neon-glow-primary">
                 <Cpu className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold tracking-tighter font-headline">NeuroFlow<span className="text-primary">AI</span></span>
+              <span className="text-xl font-bold tracking-tighter font-headline flex items-center">
+                NeuroFlow<span className="text-primary">AI</span>
+                <span className="ml-1 w-1 h-1 rounded-full bg-white animate-pulse" />
+              </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Pioneering the future of human-AI collaboration. Building tools that empower thinkers, creators, and doers worldwide.
