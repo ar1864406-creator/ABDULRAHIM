@@ -28,6 +28,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Account for the fixed glass header */
+  }
   * {
     @apply border-border;
   }
