@@ -56,6 +56,16 @@ export function CustomCursor() {
           transform: `translate(${position.x - 10}px, ${position.y - 10}px)` 
         }}
       />
+      <div 
+        className={cn(
+          "custom-cursor-inner animate-cursor-blink",
+          isHovering && "scale-[0.5]"
+        )}
+        style={{ 
+          left: position.x,
+          top: position.y
+        }}
+      />
     </>
   )
 }
