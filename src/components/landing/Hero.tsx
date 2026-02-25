@@ -32,7 +32,7 @@ export function Hero() {
               <Button size="lg" className="h-16 px-10 text-lg bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] rounded-2xl neon-glow-primary transition-all duration-300 group">
                 Begin Experience <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button size="lg" variant="outline" className="h-16 px-10 text-lg rounded-2xl border-white/10 glass-morphism text-white hover:bg-white/5">
+              <Button size="lg" variant="outline" className="h-16 px-10 text-lg rounded-2xl border-white/10 glass-morphism text-white hover:bg-[#8C1007] hover:border-[#8C1007] transition-all duration-300">
                 Technical Blueprint
               </Button>
             </div>
