@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,9 +30,30 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: 100px; /* Account for the fixed glass header */
   }
+  
+  /* Lenis smooth scrolling compatibility */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+
   * {
     @apply border-border;
   }
