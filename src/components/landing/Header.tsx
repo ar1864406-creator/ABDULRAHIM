@@ -59,7 +59,9 @@ export function Header({ className }: HeaderProps) {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center neon-glow-primary group-hover:rotate-12 transition-all duration-500">
             <Cpu className="w-6 h-6 text-white" />
           </div>
-          <span className="text-xl font-bold tracking-tighter font-headline flex items-center">
+          <span className="text-xl font-bold tracking-tighter font-headline flex items-center gap-2">
+            <span className="text-primary">AR</span>
+            <span className="w-px h-4 bg-white/20 mx-1" />
             Abdul Rahim<span className="text-primary text-3xl leading-none">.</span>
           </span>
         </Link>
@@ -107,7 +109,7 @@ export function Header({ className }: HeaderProps) {
                       <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
                         <Cpu className="w-5 h-5 text-white" />
                       </div>
-                      <span className="font-headline font-bold">Abdul Rahim</span>
+                      <span className="font-headline font-bold">AR | Abdul Rahim</span>
                     </div>
                   </SheetTitle>
                 </SheetHeader>

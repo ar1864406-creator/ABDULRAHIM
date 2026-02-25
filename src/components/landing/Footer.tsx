@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { Cpu, Twitter, Github, Linkedin, Mail } from 'lucide-react'
+import { Cpu, Github, Linkedin, Mail } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -14,7 +14,9 @@ export function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center neon-glow-primary">
                 <Cpu className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold tracking-tighter font-headline flex items-center">
+              <span className="text-xl font-bold tracking-tighter font-headline flex items-center gap-2">
+                <span className="text-primary">AR</span>
+                <span className="w-px h-4 bg-white/20 mx-1" />
                 Abdul Rahim<span className="text-primary text-3xl leading-none">.</span>
               </span>
             </Link>
@@ -39,6 +41,7 @@ export function Footer() {
             <ul className="space-y-4 text-sm text-muted-foreground">
               <li><Link href="#expertise" className="hover:text-primary transition-colors">Expertise</Link></li>
               <li><Link href="#process" className="hover:text-primary transition-colors">Process</Link></li>
+              <li><Link href="#audit" className="hover:text-primary transition-colors">Audit</Link></li>
             </ul>
           </div>
 
