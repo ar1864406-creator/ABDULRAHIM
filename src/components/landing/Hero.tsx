@@ -1,16 +1,60 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Sparkles, Layout, Code } from 'lucide-react'
 import Image from 'next/image'
 import { PlaceHolderImages } from '@/lib/placeholder-images'
 
+interface Particle {
+  id: number;
+  size: number;
+  top: string;
+  left: string;
+  delay: string;
+  duration: string;
+  opacity: number;
+}
+
 export function Hero() {
+  const [particles, setParticles] = useState<Particle[]>([])
   const profileImg = PlaceHolderImages.find(img => img.id === 'hero-profile')
+
+  useEffect(() => {
+    // Generate particles only on the client to avoid hydration mismatch
+    const newParticles = [...Array(30)].map((_, i) => ({
+      id: i,
+      size: Math.random() * 4 + 2,
+      top: Math.random() * 100 + '%',
+      left: Math.random() * 100 + '%',
+      delay: Math.random() * 5 + 's',
+      duration: Math.random() * 10 + 10 + 's',
+      opacity: Math.random() * 0.4 + 0.1
+    }))
+    setParticles(newParticles)
+  }, [])
 
   return (
     <section className="relative pt-48 pb-24 overflow-hidden">
+      {/* Dynamic Background Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {particles.map((p) => (
+          <div
+            key={p.id}
+            className="absolute rounded-full bg-[#FFF0C4] animate-float"
+            style={{
+              width: p.size + 'px',
+              height: p.size + 'px',
+              top: p.top,
+              left: p.left,
+              animationDelay: p.delay,
+              animationDuration: p.duration,
+              opacity: p.opacity
+            }}
+          />
+        ))}
+      </div>
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <div className="flex-[1.2] text-center lg:text-left animate-fade-in-up">
