@@ -1,9 +1,11 @@
+
 "use client"
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Cpu, Menu } from 'lucide-react'
+import { cn } from '@/lib/utils'
 import {
   Sheet,
   SheetContent,
@@ -13,13 +15,40 @@ import {
 } from "@/components/ui/sheet"
 
 const navItems = [
-  { name: 'Features', href: '#features' },
-  { name: 'How it Works', href: '#how-it-works' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Demo', href: '#demo' },
+  { name: 'Features', href: '#features', id: 'features' },
+  { name: 'Demo', href: '#demo', id: 'demo' },
+  { name: 'How it Works', href: '#how-it-works', id: 'how-it-works' },
+  { name: 'Testimonials', href: '#testimonials', id: 'testimonials' },
 ]
 
 export function Header() {
+  const [activeSection, setActiveSection] = useState<string>('')
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0,
+    }
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+    navItems.forEach((item) => {
+      const element = document.getElementById(item.id)
+      if (element) observer.observe(element)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
       <div className="glass-card rounded-2xl px-6 h-20 flex items-center justify-between border-black/5 shadow-2xl backdrop-blur-md">
@@ -33,17 +62,24 @@ export function Header() {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-10">
-          {navItems.map((item) => (
-            <Link 
-              key={item.name}
-              href={item.href} 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
-            >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-            </Link>
-          ))}
+        <nav className="hidden md:flex items-center gap-2 p-1 bg-black/10 rounded-xl">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id
+            return (
+              <Link 
+                key={item.name}
+                href={item.href} 
+                className={cn(
+                  "text-sm font-bold transition-all duration-500 px-6 py-2.5 rounded-xl relative",
+                  isActive 
+                    ? "bg-[#FFF0C4] text-[#1a0301] shadow-lg shadow-black/20" 
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {item.name}
+              </Link>
+            )
+          })}
         </nav>
 
         <div className="flex items-center gap-4">
@@ -77,12 +113,17 @@ export function Header() {
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-8">
-                  <nav className="flex flex-col gap-6">
+                  <nav className="flex flex-col gap-4">
                     {navItems.map((item) => (
                       <Link 
                         key={item.name}
                         href={item.href} 
-                        className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors"
+                        className={cn(
+                          "text-lg font-bold p-4 rounded-xl transition-all",
+                          activeSection === item.id 
+                            ? "bg-[#FFF0C4] text-[#1a0301]" 
+                            : "text-muted-foreground"
+                        )}
                       >
                         {item.name}
                       </Link>
