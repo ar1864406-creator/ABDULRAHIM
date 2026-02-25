@@ -21,15 +21,15 @@ export function Hero() {
   const profileImg = PlaceHolderImages.find(img => img.id === 'hero-profile')
 
   useEffect(() => {
-    // Generate particles only on the client to avoid hydration mismatch
-    const newParticles = [...Array(30)].map((_, i) => ({
+    // Increased density to 80 particles for a more immersive feel
+    const newParticles = [...Array(80)].map((_, i) => ({
       id: i,
-      size: Math.random() * 4 + 2,
+      size: Math.random() * 3 + 1, // Slightly smaller for better density
       top: Math.random() * 100 + '%',
       left: Math.random() * 100 + '%',
       delay: Math.random() * 5 + 's',
-      duration: Math.random() * 10 + 10 + 's',
-      opacity: Math.random() * 0.4 + 0.1
+      duration: Math.random() * 12 + 8 + 's',
+      opacity: Math.random() * 0.3 + 0.1
     }))
     setParticles(newParticles)
   }, [])
@@ -58,7 +58,7 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <div className="flex-[1.2] text-center lg:text-left animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-morphism text-[#FFF0C4] text-xs font-bold uppercase tracking-[0.2em] mb-8 animate-pulse">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-white/10 text-[#FFF0C4] text-xs font-bold uppercase tracking-[0.2em] mb-8 animate-pulse">
               <Sparkles className="w-4 h-4" />
               <span>Available for New Projects</span>
             </div>
@@ -76,7 +76,7 @@ export function Hero() {
               <Button size="lg" className="h-16 px-10 text-lg bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] rounded-2xl neon-glow-primary transition-all duration-300 group">
                 View My Works <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button size="lg" variant="outline" className="h-16 px-10 text-lg rounded-2xl border-white/10 glass-morphism text-white hover:bg-[#8C1007] transition-all duration-300">
+              <Button size="lg" variant="outline" className="h-16 px-10 text-lg rounded-2xl border-white/10 glass-card text-white hover:bg-[#8C1007] transition-all duration-300">
                 Download Resume
               </Button>
             </div>
