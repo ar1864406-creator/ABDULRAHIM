@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useState, useEffect } from 'react'
@@ -17,6 +16,7 @@ import {
 const navItems = [
   { name: 'Expertise', href: '#expertise', id: 'expertise' },
   { name: 'Process', href: '#process', id: 'process' },
+  { name: 'Audit', href: '#audit', id: 'audit' },
 ]
 
 export function Header() {
@@ -69,7 +69,7 @@ export function Header() {
                 key={item.name}
                 href={item.href} 
                 className={cn(
-                  "text-sm font-bold transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] px-10 py-1.5 rounded-xl relative overflow-hidden group/nav",
+                  "text-sm font-bold transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] px-8 py-1.5 rounded-xl relative overflow-hidden group/nav",
                   isActive 
                     ? "bg-[#FFF0C4] text-[#1a0301] shadow-lg shadow-black/20 scale-x-105" 
                     : "text-muted-foreground hover:text-foreground hover:bg-white/10"

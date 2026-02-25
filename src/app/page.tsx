@@ -2,6 +2,7 @@ import { Header } from '@/components/landing/Header'
 import { Hero } from '@/components/landing/Hero'
 import { Benefits } from '@/components/landing/Benefits'
 import { HowItWorks } from '@/components/landing/HowItWorks'
+import { AuditSection } from '@/components/landing/AuditSection'
 import { Footer } from '@/components/landing/Footer'
 import { WelcomeNotification } from '@/components/landing/WelcomeNotification'
 import { PerformanceWidget } from '@/components/ui/performance-widget'
@@ -25,6 +26,7 @@ export default function Home() {
         <Hero />
         <Benefits />
         <HowItWorks />
+        <AuditSection />
         
         {/* Final CTA Section */}
         <section className="py-32 relative overflow-hidden">
