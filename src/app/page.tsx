@@ -4,12 +4,14 @@ import { Benefits } from '@/components/landing/Benefits'
 import { HowItWorks } from '@/components/landing/HowItWorks'
 import { Footer } from '@/components/landing/Footer'
 import { WelcomeNotification } from '@/components/landing/WelcomeNotification'
+import { PerformanceWidget } from '@/components/ui/performance-widget'
 import { Sparkles } from 'lucide-react'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground mesh-gradient relative">
       <WelcomeNotification />
+      <PerformanceWidget />
       
       {/* Dynamic Background Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
