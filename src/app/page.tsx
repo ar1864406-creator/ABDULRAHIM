@@ -1,6 +1,7 @@
 import { Header } from '@/components/landing/Header'
 import { Hero } from '@/components/landing/Hero'
 import { Benefits } from '@/components/landing/Benefits'
+import { SkillProgress } from '@/components/landing/SkillProgress'
 import { HowItWorks } from '@/components/landing/HowItWorks'
 import { AuditSection } from '@/components/landing/AuditSection'
 import { Footer } from '@/components/landing/Footer'
@@ -25,6 +26,7 @@ export default function Home() {
       <div className="relative z-10">
         <Hero />
         <Benefits />
+        <SkillProgress />
         <HowItWorks />
         <AuditSection />
         
