@@ -60,7 +60,7 @@ export function Header({ className }: HeaderProps) {
             <Cpu className="w-6 h-6 text-white" />
           </div>
           <span className="text-xl font-bold tracking-tighter font-headline flex items-center">
-            Abdul Rahim<span className="text-primary">.</span>
+            Abdul Rahim<span className="text-primary text-3xl leading-none">.</span>
           </span>
         </Link>
         

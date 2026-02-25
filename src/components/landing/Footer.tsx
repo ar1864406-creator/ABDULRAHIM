@@ -15,7 +15,7 @@ export function Footer() {
                 <Cpu className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold tracking-tighter font-headline flex items-center">
-                Abdul Rahim<span className="text-primary">.</span>
+                Abdul Rahim<span className="text-primary text-3xl leading-none">.</span>
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
