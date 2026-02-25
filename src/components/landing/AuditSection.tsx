@@ -1,9 +1,12 @@
+
 "use client"
 
 import React, { useState } from 'react'
-import { AlertCircle, ArrowRight, MousePointer2, Zap, ShieldCheck, BarChart3, ChevronRight } from 'lucide-react'
+import { AlertCircle, ArrowRight, Zap, ShieldCheck, BarChart3 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
+import { PlaceHolderImages } from '@/lib/placeholder-images'
 
 const auditPoints = [
   {
@@ -46,6 +49,7 @@ const auditPoints = [
 
 export function AuditSection() {
   const [activePoint, setActivePoint] = useState(auditPoints[0])
+  const dashboardImg = PlaceHolderImages.find(img => img.id === 'dashboard-mockup')
 
   return (
     <section id="audit" className="py-32 relative overflow-hidden bg-background/50">
@@ -72,19 +76,16 @@ export function AuditSection() {
                 <div className="ml-4 h-6 w-1/2 bg-white/5 rounded-full" />
               </div>
 
-              {/* Mock Content Shapes */}
-              <div className="space-y-6 px-4">
-                <div className="h-12 w-3/4 bg-white/10 rounded-2xl" />
-                <div className="flex gap-4">
-                  <div className="h-40 w-full bg-white/5 rounded-[2rem]" />
-                  <div className="h-40 w-2/3 bg-white/5 rounded-[2rem]" />
-                </div>
-                <div className="h-8 w-1/2 bg-white/10 rounded-xl" />
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="h-24 bg-white/5 rounded-2xl" />
-                  <div className="h-24 bg-white/5 rounded-2xl" />
-                  <div className="h-24 bg-white/5 rounded-2xl" />
-                </div>
+              {/* Mock Content Dashboard Image */}
+              <div className="relative w-full h-[calc(100%-4rem)] rounded-2xl overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                <Image 
+                  src={dashboardImg?.imageUrl || ''} 
+                  alt="Futuristic Dashboard UI" 
+                  fill
+                  className="object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700"
+                  data-ai-hint="dashboard ui"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
 
               {/* Hotspots */}
