@@ -52,7 +52,7 @@ export function Header() {
             <Button variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-black/5 transition-colors">
               Log In
             </Button>
-            <Button className="bg-primary hover:bg-primary/90 text-white font-bold px-6 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-95">
+            <Button className="bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] text-white font-bold px-6 rounded-xl shadow-lg shadow-primary/20 transition-all duration-300 active:scale-95">
               Start Free
             </Button>
           </div>
@@ -92,7 +92,7 @@ export function Header() {
                     <Button variant="outline" className="w-full border-black/10 glass-morphism text-foreground h-12 rounded-xl">
                       Log In
                     </Button>
-                    <Button className="w-full bg-primary text-white font-bold h-12 rounded-xl shadow-lg shadow-primary/20">
+                    <Button className="w-full bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] text-white font-bold h-12 rounded-xl shadow-lg shadow-primary/20 transition-all duration-300">
                       Start Free
                     </Button>
                   </div>
