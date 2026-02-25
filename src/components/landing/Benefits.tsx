@@ -53,7 +53,7 @@ export function Benefits() {
     <section id="features" className="py-32 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-morphism text-secondary text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-morphism text-foreground text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
             Superior Advantages
           </div>
           <h2 className="text-5xl md:text-7xl font-bold font-headline leading-tight">

@@ -35,7 +35,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               
               <div className="relative z-10">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-morphism text-primary text-xs font-bold uppercase tracking-widest mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-morphism text-foreground text-xs font-bold uppercase tracking-widest mb-8">
                   <Sparkles className="w-4 h-4" />
                   <span>Join the elite 1%</span>
                 </div>

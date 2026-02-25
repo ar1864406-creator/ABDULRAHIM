@@ -39,7 +39,7 @@ export function Testimonials() {
     <section id="testimonials" className="py-32 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-morphism text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-morphism text-foreground text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
             Global Impact
           </div>
           <h2 className="text-5xl md:text-7xl font-bold mb-6 font-headline tracking-tight">The <span className="gradient-text">New Standard.</span></h2>

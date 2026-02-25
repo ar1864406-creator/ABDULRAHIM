@@ -14,7 +14,7 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
           <div className="flex-[1.2] text-center lg:text-left animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-morphism text-primary text-xs font-bold uppercase tracking-[0.2em] mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-morphism text-foreground text-xs font-bold uppercase tracking-[0.2em] mb-8">
               <Sparkles className="w-4 h-4" />
               <span>Intelligence Redefined</span>
             </div>
