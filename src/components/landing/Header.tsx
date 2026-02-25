@@ -70,13 +70,13 @@ export function Header() {
                 key={item.name}
                 href={item.href} 
                 className={cn(
-                  "text-sm font-bold transition-all duration-500 px-6 py-2.5 rounded-xl relative",
+                  "text-sm font-bold transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] px-6 py-2.5 rounded-xl relative overflow-hidden group/nav",
                   isActive 
-                    ? "bg-[#FFF0C4] text-[#1a0301] shadow-lg shadow-black/20" 
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-[#FFF0C4] text-[#1a0301] shadow-lg shadow-black/20 scale-105" 
+                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                 )}
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
               </Link>
             )
           })}
@@ -119,7 +119,7 @@ export function Header() {
                         key={item.name}
                         href={item.href} 
                         className={cn(
-                          "text-lg font-bold p-4 rounded-xl transition-all",
+                          "text-lg font-bold p-4 rounded-xl transition-all duration-300",
                           activeSection === item.id 
                             ? "bg-[#FFF0C4] text-[#1a0301]" 
                             : "text-muted-foreground"
