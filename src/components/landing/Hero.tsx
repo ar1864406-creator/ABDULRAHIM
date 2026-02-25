@@ -24,11 +24,11 @@ export function Hero() {
     // Increased density to 80 particles for a more immersive feel
     const newParticles = [...Array(80)].map((_, i) => ({
       id: i,
-      size: Math.random() * 3 + 1, // Slightly smaller for better density
+      size: Math.random() * 3 + 1,
       top: Math.random() * 100 + '%',
       left: Math.random() * 100 + '%',
-      delay: Math.random() * 5 + 's',
-      duration: Math.random() * 12 + 8 + 's',
+      delay: Math.random() * -20 + 's', // Random start offset
+      duration: Math.random() * 15 + 15 + 's', // Slower, more organic drift
       opacity: Math.random() * 0.3 + 0.1
     }))
     setParticles(newParticles)
@@ -41,7 +41,7 @@ export function Hero() {
         {particles.map((p) => (
           <div
             key={p.id}
-            className="absolute rounded-full bg-[#FFF0C4] animate-float"
+            className="absolute rounded-full bg-[#FFF0C4] animate-drift"
             style={{
               width: p.size + 'px',
               height: p.size + 'px',
