@@ -1,4 +1,3 @@
-
 "use client"
 
 import React, { useState } from 'react'
@@ -85,6 +84,10 @@ export function AuditSection() {
                   className="object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700"
                   data-ai-hint="dashboard ui"
                 />
+                
+                {/* HUD Scanning Line */}
+                <div className="absolute left-0 w-full h-1 bg-primary/40 shadow-[0_0_15px_hsl(var(--primary))] animate-scan pointer-events-none z-10" />
+                
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
 
@@ -118,7 +121,7 @@ export function AuditSection() {
           </div>
 
           {/* Right Side: Info Panel */}
-          <div className="space-y-8 animate-fade-in-up">
+          <div className="space-y-8">
             <div className="clay-card p-10 rounded-[3rem] border border-white/5 min-h-[400px] flex flex-col justify-center relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-5">
                 <BarChart3 className="w-32 h-32" />
@@ -158,7 +161,7 @@ export function AuditSection() {
         </div>
 
         {/* Bottom CTA Area */}
-        <div className="mt-32 text-center max-w-4xl mx-auto">
+        <div className="mt-32 text-center max-w-4xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '500ms', animationFillMode: 'forwards' }}>
           <p className="text-2xl md:text-4xl font-light italic text-muted-foreground mb-12 leading-relaxed">
             “Most websites don’t have a <span className="text-foreground font-bold">design problem</span>. <br className="hidden md:block" />
             They have a <span className="gradient-text font-bold">decision-making problem</span>.”

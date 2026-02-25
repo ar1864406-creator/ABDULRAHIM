@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { MousePointer2, Smartphone, Terminal, Palette, BarChart3, Globe } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 const skills = [
   {
@@ -66,7 +67,10 @@ export function Benefits() {
           {skills.map((skill, i) => (
             <div 
               key={i} 
-              className="group clay-card p-10 rounded-[2.5rem] transition-all duration-500 relative overflow-hidden card-3d"
+              className={cn(
+                "group clay-card p-10 rounded-[2.5rem] transition-all duration-500 relative overflow-hidden card-3d opacity-0 animate-fade-in-up",
+              )}
+              style={{ animationDelay: `${i * 150}ms`, animationFillMode: 'forwards' }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               

@@ -205,3 +205,12 @@
 .marquee-3d-item:hover {
   transform: translateZ(30px) scale(1.1);
 }
+
+@keyframes scan {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+.animate-scan {
+  animation: scan 3s linear infinite;
+}
