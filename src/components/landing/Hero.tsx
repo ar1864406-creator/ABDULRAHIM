@@ -21,15 +21,15 @@ export function Hero() {
   const profileImg = PlaceHolderImages.find(img => img.id === 'hero-profile')
 
   useEffect(() => {
-    // Increased density to 80 particles for a more immersive feel
+    // High density particles with increased visibility
     const newParticles = [...Array(80)].map((_, i) => ({
       id: i,
-      size: Math.random() * 3 + 1,
+      size: Math.random() * 4 + 2, // Increased size range
       top: Math.random() * 100 + '%',
       left: Math.random() * 100 + '%',
-      delay: Math.random() * -20 + 's', // Random start offset
-      duration: Math.random() * 15 + 15 + 's', // Slower, more organic drift
-      opacity: Math.random() * 0.3 + 0.1
+      delay: Math.random() * -20 + 's',
+      duration: Math.random() * 15 + 15 + 's',
+      opacity: Math.random() * 0.5 + 0.3 // Increased opacity base and range
     }))
     setParticles(newParticles)
   }, [])
