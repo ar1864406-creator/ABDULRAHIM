@@ -33,6 +33,12 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground mesh-gradient relative">
       <CinematicIntro />
       
+      {/* Header moved outside to be truly fixed to viewport */}
+      <Header className={cn(
+        "transition-opacity duration-1000",
+        showContent ? "opacity-100" : "opacity-0 pointer-events-none"
+      )} />
+
       <div className={cn(
         "transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]",
         showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -45,8 +51,6 @@ export default function Home() {
           <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
         </div>
-
-        <Header />
         
         <div className="relative z-10">
           <Hero />

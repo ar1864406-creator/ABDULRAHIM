@@ -20,7 +20,11 @@ const navItems = [
   { name: 'Audit', href: '#audit', id: 'audit' },
 ]
 
-export function Header() {
+interface HeaderProps {
+  className?: string;
+}
+
+export function Header({ className }: HeaderProps) {
   const [activeSection, setActiveSection] = useState<string>('')
 
   useEffect(() => {
@@ -49,7 +53,7 @@ export function Header() {
   }, [])
 
   return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+    <header className={cn("fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl", className)}>
       <div className="glass-card rounded-2xl px-6 h-20 flex items-center justify-between shadow-2xl">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center neon-glow-primary group-hover:rotate-12 transition-all duration-500">
