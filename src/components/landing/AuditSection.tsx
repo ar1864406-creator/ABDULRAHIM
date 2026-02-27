@@ -1,9 +1,8 @@
 "use client"
 
 import React, { useState } from 'react'
-import { AlertCircle, ArrowRight, Zap, ShieldCheck, BarChart3 } from 'lucide-react'
+import { AlertCircle, Zap, ShieldCheck, BarChart3 } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { PlaceHolderImages } from '@/lib/placeholder-images'
 
@@ -146,17 +145,6 @@ export function AuditSection() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-32 text-center max-w-4xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '500ms', animationFillMode: 'forwards' }}>
-          <p className="text-2xl md:text-4xl font-light italic text-muted-foreground mb-12 leading-relaxed">
-            “Most websites don’t have a <span className="text-foreground font-bold">design problem</span>. <br className="hidden md:block" />
-            They have a <span className="gradient-text font-bold">decision-making problem</span>.”
-          </p>
-          
-          <Button size="lg" className="h-16 px-12 text-lg rounded-2xl bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] transition-all duration-300 neumo-button-primary group border-none">
-            Get a Free Mini Audit <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
         </div>
       </div>
     </section>
