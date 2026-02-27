@@ -8,6 +8,9 @@ import { SmoothScroll } from "@/components/ui/smooth-scroll"
 export const metadata: Metadata = {
   title: 'Abdul Rahim | Web UI/UX Designer & Frontend Developer',
   description: 'Portfolio of Abdul Rahim, a passionate Web UI/UX Designer with 2 years of experience creating modern, conversion-focused landing pages.',
+  icons: {
+    icon: '/Untitled design.ico',
+  },
 };
 
 export default function RootLayout({
