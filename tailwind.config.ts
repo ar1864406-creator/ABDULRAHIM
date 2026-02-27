@@ -1,4 +1,3 @@
-
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -113,6 +112,10 @@ export default {
         'cursor-pulse': {
           '0%, 100%': { 'background-color': 'hsl(var(--primary))' },
           '50%': { 'background-color': '#ffffff' },
+        },
+        'text-color-pulse': {
+          '0%, 100%': { color: 'hsl(var(--primary))' },
+          '50%': { color: '#ffffff' },
         }
       },
       animation: {
@@ -125,7 +128,8 @@ export default {
         'typewriter': 'typewriter 1.5s steps(40, end) forwards',
         'expand-line': 'expand-line 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards',
         'blink': 'blink 1.5s ease-in-out infinite',
-        'cursor-pulse': 'cursor-pulse 1s ease-in-out infinite'
+        'cursor-pulse': 'cursor-pulse 1s ease-in-out infinite',
+        'text-color-pulse': 'text-color-pulse 1s ease-in-out infinite'
       },
     },
   },
