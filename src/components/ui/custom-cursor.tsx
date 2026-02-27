@@ -7,6 +7,7 @@ export function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
+  const [isGreen, setIsGreen] = useState(true)
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
@@ -36,10 +37,16 @@ export function CustomCursor() {
     window.addEventListener('mouseover', onMouseOver)
     window.addEventListener('mouseout', onMouseOut)
 
+    // Interval to toggle cursor color every 500ms
+    const interval = setInterval(() => {
+      setIsGreen(prev => !prev)
+    }, 500)
+
     return () => {
       window.removeEventListener('mousemove', onMouseMove)
       window.removeEventListener('mouseover', onMouseOver)
       window.removeEventListener('mouseout', onMouseOut)
+      clearInterval(interval)
     }
   }, [isVisible])
 
@@ -58,12 +65,13 @@ export function CustomCursor() {
       />
       <div 
         className={cn(
-          "custom-cursor-inner animate-cursor-blink",
+          "custom-cursor-inner transition-colors duration-300",
           isHovering && "scale-[0.5]"
         )}
         style={{ 
           left: position.x,
-          top: position.y
+          top: position.y,
+          backgroundColor: isGreen ? 'hsl(var(--primary))' : '#ffffff'
         }}
       />
     </>
