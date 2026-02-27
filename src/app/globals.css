@@ -1,16 +1,17 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 240 10% 4%; /* Near black */
+    --background: 240 10% 4%;
     --foreground: 0 0% 98%;
     --card: 240 10% 6%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 4%;
     --popover-foreground: 0 0% 98%;
-    --primary: 158 94% 30%; /* Emerald Green */
+    --primary: 158 94% 30%;
     --primary-foreground: 0 0% 100%;
     --secondary: 240 10% 12%;
     --secondary-foreground: 0 0% 98%;
@@ -33,18 +34,18 @@
   }
   
   html, body {
-    cursor: none !important; /* Completely hide default cursor */
+    cursor: none !important;
   }
 
   body {
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 selection:text-primary;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
   }
   
-  /* Ensure interactive elements also don't show the default cursor */
   a, button, input, textarea, [role="button"] {
     cursor: none !important;
   }
@@ -57,11 +58,13 @@
 
   .perspective-container {
     perspective: 1200px;
+    transform-style: preserve-3d;
   }
 
   .card-3d {
     transform-style: preserve-3d;
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
   }
 
   .card-3d:hover {
@@ -71,6 +74,7 @@
   .inner-3d {
     transform: translateZ(40px);
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
   }
 
   .neumo-card {
@@ -79,6 +83,10 @@
 
   .neumo-card-inset {
     @apply bg-black/20 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.6),inset_-2px_-2px_8px_rgba(255,255,255,0.05)];
+  }
+
+  .will-change-transform {
+    will-change: transform;
   }
 }
 
@@ -91,17 +99,9 @@
   animation: gradient 8s linear infinite;
 }
 
-.custom-cursor {
-  will-change: transform;
-}
-
-.custom-cursor-inner {
-  will-change: left, top, background-color;
-}
-
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 .animate-marquee {
@@ -109,16 +109,16 @@
   will-change: transform;
 }
 
-/* Optimized drift animation using GPU acceleration */
 @keyframes drift {
   0% { transform: translate3d(0, 0, 0); }
-  20% { transform: translate3d(20vw, 15vh, 0); }
-  40% { transform: translate3d(-10vw, 30vh, 0); }
-  60% { transform: translate3d(25vw, -10vh, 0); }
-  80% { transform: translate3d(-15vw, -20vh, 0); }
+  20% { transform: translate3d(15vw, 10vh, 0); }
+  40% { transform: translate3d(-5vw, 25vh, 0); }
+  60% { transform: translate3d(20vw, -5vh, 0); }
+  80% { transform: translate3d(-10vw, -15vh, 0); }
   100% { transform: translate3d(0, 0, 0); }
 }
 
-.will-change-transform {
-  will-change: transform;
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -20px, 0); }
 }
