@@ -4,8 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 /**
  * @fileOverview A high-fidelity cinematic background component featuring floating particles, 
- * bokeh glow nodes, and multi-layered parallax movement.
- * Fixes hydration errors by generating random values only on the client.
+ * bokeh glow nodes, and multi-layered parallax movement that follows the cursor.
  */
 
 type Particle = {
@@ -33,6 +32,7 @@ export function NeuralBackground() {
   const [particles, setParticles] = useState<Particle[]>([]);
   const [bokehNodes, setBokehNodes] = useState<BokehNode[]>([]);
   const [isMounted, setIsMounted] = useState(false);
+  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setIsMounted(true);
@@ -61,6 +61,16 @@ export function NeuralBackground() {
 
     setParticles(generatedParticles);
     setBokehNodes(generatedBokehNodes);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      // Calculate normalized offset from center (-0.5 to 0.5)
+      const x = (e.clientX / window.innerWidth) - 0.5;
+      const y = (e.clientY / window.innerHeight) - 0.5;
+      setMouseOffset({ x, y });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   // Avoid rendering dynamic content until after hydration
@@ -74,8 +84,13 @@ export function NeuralBackground() {
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 blur-[180px] rounded-full animate-float opacity-40" />
       <div className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-primary/15 blur-[200px] rounded-full animate-float [animation-delay:-10s] opacity-30" />
       
-      {/* Bokeh Layers (Depth layer 1) */}
-      <div className="absolute inset-0">
+      {/* Bokeh Layers (Interactive Parallax) */}
+      <div 
+        className="absolute inset-0 transition-transform duration-[1200ms] ease-out"
+        style={{ 
+          transform: `translate3d(${mouseOffset.x * 30}px, ${mouseOffset.y * 30}px, 0)` 
+        }}
+      >
         {bokehNodes.map((node) => (
           <div
             key={`bokeh-${node.id}`}
@@ -93,8 +108,13 @@ export function NeuralBackground() {
         ))}
       </div>
 
-      {/* Main Neural Particle System (Depth layer 2) */}
-      <div className="absolute inset-0">
+      {/* Main Neural Particle System (Stronger Interactive Parallax) */}
+      <div 
+        className="absolute inset-0 transition-transform duration-700 ease-out"
+        style={{ 
+          transform: `translate3d(${mouseOffset.x * -50}px, ${mouseOffset.y * -50}px, 0)` 
+        }}
+      >
         {particles.map((p) => (
           <div
             key={`particle-${p.id}`}
@@ -113,7 +133,7 @@ export function NeuralBackground() {
         ))}
       </div>
 
-      {/* Subtle Noise Texture Overlay for high-end cinematic feel */}
+      {/* Subtle Noise Texture Overlay */}
       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
     </div>
   );
