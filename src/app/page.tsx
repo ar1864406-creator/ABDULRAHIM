@@ -12,7 +12,6 @@ import { TechnicalReality } from '@/components/landing/TechnicalReality'
 import { ProfessionalServices } from '@/components/landing/ProfessionalServices'
 import { ContactSection } from '@/components/landing/ContactSection'
 import { Footer } from '@/components/landing/Footer'
-import { ChatDemo } from '@/components/landing/ChatDemo'
 import { CinematicIntro } from '@/components/ui/cinematic-intro'
 import { WelcomeNotification } from '@/components/landing/WelcomeNotification'
 import { PerformanceWidget } from '@/components/ui/performance-widget'
@@ -33,7 +32,6 @@ export default function Home() {
       <AuditSection />
       <SkillProgress />
       <TechnicalReality />
-      <ChatDemo />
       <ProfessionalServices />
       <ContactSection />
       <Footer />
