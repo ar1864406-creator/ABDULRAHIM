@@ -24,7 +24,7 @@ const auditPoints = [
     left: '30%',
     problem: 'Friction-Heavy Call to Action',
     impact: 'Weak visual contrast and vague copy result in "decision fatigue," causing visitors to scroll past without engaging.',
-    solution: 'Utilize high-contrast claymorphism buttons with action-oriented, value-based copy to drive immediate intent.'
+    solution: 'Utilize high-contrast neumorphism buttons with action-oriented, value-based copy to drive immediate intent.'
   },
   {
     id: 'speed',
@@ -66,16 +66,14 @@ export function AuditSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center perspective-container">
           {/* Left Side: Mock Website */}
           <div className="relative group card-3d">
-            <div className="clay-card aspect-[4/3] w-full rounded-[3rem] p-4 relative overflow-hidden inner-3d">
-              {/* Browser Header Mock */}
+            <div className="neumo-card aspect-[4/3] w-full rounded-[3rem] p-4 relative overflow-hidden inner-3d">
               <div className="flex items-center gap-2 mb-6 px-4">
                 <div className="w-3 h-3 rounded-full bg-red-500/50" />
                 <div className="w-3 h-3 rounded-full bg-amber-500/50" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500/50" />
-                <div className="ml-4 h-6 w-1/2 bg-white/5 rounded-full" />
+                <div className="ml-4 h-6 w-1/2 neumo-card-inset opacity-20" />
               </div>
 
-              {/* Mock Content Dashboard Image */}
               <div className="relative w-full h-[calc(100%-4rem)] rounded-2xl overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity duration-500">
                 <Image 
                   src={dashboardImg?.imageUrl || ''} 
@@ -87,7 +85,6 @@ export function AuditSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
 
-              {/* Hotspots */}
               {auditPoints.map((point) => (
                 <button
                   key={point.id}
@@ -104,21 +101,16 @@ export function AuditSection() {
                   <div className="absolute inset-0 rounded-full bg-primary/40 animate-ping" />
                   <AlertCircle className="w-5 h-5 text-white" />
                   
-                  {/* Tooltip on Hover */}
                   <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-black text-[#FFF0C4] text-[10px] font-bold rounded-lg opacity-0 group-hover/hotspot:opacity-100 transition-opacity whitespace-nowrap">
                     {point.label}
                   </span>
                 </button>
               ))}
             </div>
-
-            {/* Reflection Effect */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none rounded-[3rem]" />
           </div>
 
-          {/* Right Side: Info Panel */}
           <div className="space-y-8">
-            <div className="clay-card p-10 rounded-[3rem] border border-white/5 min-h-[400px] flex flex-col justify-center relative overflow-hidden">
+            <div className="neumo-card p-10 rounded-[3rem] min-h-[400px] flex flex-col justify-center relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-5">
                 <BarChart3 className="w-32 h-32" />
               </div>
@@ -132,7 +124,7 @@ export function AuditSection() {
                   <h3 className="text-3xl font-bold font-headline mb-4">{activePoint.problem}</h3>
                 </div>
 
-                <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
+                <div className="neumo-card-inset p-6 rounded-2xl">
                   <div className="flex items-center gap-3 text-[#FFF0C4] mb-2">
                     <Zap className="w-4 h-4" />
                     <span className="text-[10px] font-bold uppercase tracking-widest">Business Impact</span>
@@ -142,7 +134,7 @@ export function AuditSection() {
                   </p>
                 </div>
 
-                <div className="bg-primary/10 p-6 rounded-2xl border border-primary/20">
+                <div className="neumo-card neumo-card-primary/10 p-6 rounded-2xl border border-primary/20 bg-primary/5">
                   <div className="flex items-center gap-3 text-primary mb-2">
                     <ShieldCheck className="w-4 h-4" />
                     <span className="text-[10px] font-bold uppercase tracking-widest">My Solution</span>
@@ -156,14 +148,13 @@ export function AuditSection() {
           </div>
         </div>
 
-        {/* Bottom CTA Area */}
         <div className="mt-32 text-center max-w-4xl mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '500ms', animationFillMode: 'forwards' }}>
           <p className="text-2xl md:text-4xl font-light italic text-muted-foreground mb-12 leading-relaxed">
             “Most websites don’t have a <span className="text-foreground font-bold">design problem</span>. <br className="hidden md:block" />
             They have a <span className="gradient-text font-bold">decision-making problem</span>.”
           </p>
           
-          <Button size="lg" className="h-16 px-12 text-lg rounded-2xl bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] transition-all duration-300 clay-button group">
+          <Button size="lg" className="h-16 px-12 text-lg rounded-2xl bg-primary hover:bg-[#FFF0C4] hover:text-[#1a0301] transition-all duration-300 neumo-button-primary group border-none">
             Get a Free Mini Audit <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

@@ -19,7 +19,6 @@ export default function Home() {
   const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
-    // Wait for the intro animation stages (approx 4.5s total)
     const timer = setTimeout(() => setShowContent(true), 4500)
     return () => clearTimeout(timer)
   }, [])
@@ -28,7 +27,6 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground mesh-gradient relative">
       <CinematicIntro />
       
-      {/* Header moved outside to be truly fixed to viewport */}
       <Header className={cn(
         "transition-opacity duration-1000",
         showContent ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -41,7 +39,6 @@ export default function Home() {
         <WelcomeNotification />
         <PerformanceWidget />
         
-        {/* Dynamic Background Elements */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
           <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }} />
@@ -55,10 +52,9 @@ export default function Home() {
           <HowItWorks />
           <AuditSection />
           
-          {/* Final CTA Section */}
           <section className="py-32 relative overflow-hidden">
             <div className="container mx-auto px-6 relative">
-              <div className="max-w-5xl mx-auto clay-card rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden group">
+              <div className="max-w-5xl mx-auto neumo-card rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
                 <div className="relative z-10">
@@ -76,10 +72,10 @@ export default function Home() {
                   </p>
                   
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                    <button className="h-16 px-12 text-lg rounded-2xl bg-primary text-white font-bold clay-button hover:bg-[#FFF0C4] hover:text-[#1a0301] transition-all duration-300">
+                    <button className="h-16 px-12 text-lg rounded-2xl bg-primary text-white font-bold neumo-button-primary hover:scale-[1.02] active:scale-[0.98]">
                       Get in Touch
                     </button>
-                    <button className="h-16 px-12 text-lg rounded-2xl bg-white/5 border border-white/10 text-foreground font-bold hover:bg-white/10 transition-all duration-300">
+                    <button className="h-16 px-12 text-lg rounded-2xl bg-card text-foreground font-bold neumo-button hover:scale-[1.02] active:scale-[0.98]">
                       View Resume
                     </button>
                   </div>

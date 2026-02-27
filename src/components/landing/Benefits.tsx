@@ -63,17 +63,17 @@ export function Benefits() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 perspective-container">
           {skills.map((skill, i) => (
             <div 
               key={i} 
               className={cn(
-                "group clay-card p-10 rounded-[2.5rem] transition-all duration-500 relative overflow-hidden card-3d",
+                "group neumo-card p-10 rounded-[2.5rem] transition-all duration-500 relative overflow-hidden card-3d",
               )}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/2 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className={`mb-8 p-4 w-fit rounded-2xl ${skill.bg} ${skill.color} border border-white/5 transition-transform duration-500 inner-3d`}>
+              <div className={`mb-8 p-4 w-fit rounded-2xl neumo-card-inset ${skill.color} transition-transform duration-500 inner-3d`}>
                 {skill.icon}
               </div>
               

@@ -22,8 +22,6 @@ export function SkillProgress() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-          // Keep observing if we want it to re-animate, 
-          // but for a portfolio once is usually better.
           observer.unobserve(entry.target)
         }
       },
@@ -55,12 +53,12 @@ export function SkillProgress() {
               Proficiency isn't just about knowing the tool; it's about mastering the workflow. I leverage a modern stack to build interfaces that are as robust as they are beautiful.
             </p>
             
-            <div className="flex flex-wrap gap-4">
-              <div className="clay-card p-6 flex items-center gap-4 group hover:scale-105 transition-transform duration-500">
+            <div className="flex flex-wrap gap-6">
+              <div className="neumo-card p-6 flex items-center gap-4 group hover:scale-105 transition-transform duration-500">
                 <div className="text-primary font-bold text-3xl group-hover:animate-pulse">2+</div>
                 <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground leading-tight">Years of<br/>Execution</div>
               </div>
-              <div className="clay-card p-6 flex items-center gap-4 group hover:scale-105 transition-transform duration-500">
+              <div className="neumo-card p-6 flex items-center gap-4 group hover:scale-105 transition-transform duration-500">
                 <div className="text-primary font-bold text-3xl group-hover:animate-pulse">50+</div>
                 <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground leading-tight">Projects<br/>Optimized</div>
               </div>
@@ -71,7 +69,7 @@ export function SkillProgress() {
             "space-y-8 transition-all duration-1000 delay-500",
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
           )}>
-            <div className="clay-card p-10 rounded-[3rem] border border-white/5 relative overflow-hidden group">
+            <div className="neumo-card p-10 rounded-[3rem] relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="space-y-10 relative z-10">
@@ -79,7 +77,7 @@ export function SkillProgress() {
                   <div key={index} className="space-y-3 group/skill">
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-white/5 text-primary border border-white/10 transition-colors group-hover/skill:bg-primary group-hover/skill:text-white">
+                        <div className="p-2 rounded-lg neumo-card-inset text-primary transition-colors group-hover/skill:bg-primary group-hover/skill:text-white">
                           {skill.icon}
                         </div>
                         <span className="text-sm font-bold tracking-wide">{skill.name}</span>
@@ -91,7 +89,7 @@ export function SkillProgress() {
                         <span className="text-[10px] font-bold text-primary/50">%</span>
                       </div>
                     </div>
-                    <div className="relative h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                    <div className="relative h-3 w-full neumo-card-inset rounded-full overflow-hidden">
                       <div 
                         className="absolute top-0 left-0 h-full bg-primary transition-all duration-[1500ms] ease-[cubic-bezier(0.23,1,0.32,1)] rounded-full"
                         style={{ 
@@ -99,10 +97,8 @@ export function SkillProgress() {
                           transitionDelay: `${index * 150}ms`
                         }}
                       >
-                        {/* Glow tip */}
                         <div className="absolute top-0 right-0 w-8 h-full bg-white/20 blur-sm" />
                       </div>
-                      <div className="absolute inset-0 shadow-[inset_0_1px_2px_rgba(0,0,0,0.5)] rounded-full" />
                     </div>
                   </div>
                 ))}
