@@ -1,30 +1,55 @@
 'use client';
 
-import React, { useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /**
  * @fileOverview A high-fidelity cinematic background component featuring floating particles, 
  * bokeh glow nodes, and multi-layered parallax movement.
+ * Fixes hydration errors by generating random values only on the client.
  */
 
+type Particle = {
+  id: number;
+  size: number;
+  left: string;
+  top: string;
+  duration: number;
+  delay: number;
+  opacity: number;
+  pulseDelay: number;
+};
+
+type BokehNode = {
+  id: number;
+  size: number;
+  left: string;
+  top: string;
+  duration: number;
+  delay: number;
+  opacity: number;
+};
+
 export function NeuralBackground() {
-  // Memoize particles to prevent re-generation on every render
-  const particles = useMemo(() => {
-    return Array.from({ length: 300 }).map((_, i) => ({
+  const [particles, setParticles] = useState<Particle[]>([]);
+  const [bokehNodes, setBokehNodes] = useState<BokehNode[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    
+    // Generate particles on client side only to avoid hydration mismatch
+    const generatedParticles = Array.from({ length: 300 }).map((_, i) => ({
       id: i,
       size: Math.random() * 2.5 + 0.5,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      duration: Math.random() * 15 + 25, // Randomized durations for organic movement
+      duration: Math.random() * 15 + 25,
       delay: Math.random() * -40,
       opacity: Math.random() * 0.5 + 0.1,
       pulseDelay: Math.random() * 5,
     }));
-  }, []);
 
-  // Soft bokeh layers for depth
-  const bokehNodes = useMemo(() => {
-    return Array.from({ length: 25 }).map((_, i) => ({
+    const generatedBokehNodes = Array.from({ length: 25 }).map((_, i) => ({
       id: i,
       size: Math.random() * 250 + 150,
       left: `${Math.random() * 100}%`,
@@ -33,7 +58,15 @@ export function NeuralBackground() {
       delay: Math.random() * -60,
       opacity: Math.random() * 0.08 + 0.02,
     }));
+
+    setParticles(generatedParticles);
+    setBokehNodes(generatedBokehNodes);
   }, []);
+
+  // Avoid rendering dynamic content until after hydration
+  if (!isMounted) {
+    return <div className="absolute inset-0 bg-background pointer-events-none z-0" />;
+  }
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
