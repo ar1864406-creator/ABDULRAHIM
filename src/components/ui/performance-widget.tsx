@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
-import { Zap, Activity, Server, ShieldCheck, ChevronUp, ChevronDown } from 'lucide-react'
+import { Zap, Activity, Server, ShieldCheck, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export function PerformanceWidget() {
@@ -18,7 +18,7 @@ export function PerformanceWidget() {
       <div 
         className={cn(
           "neumo-card transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] overflow-hidden card-3d",
-          isExpanded ? "w-64 p-6" : "w-16 h-16 p-0 flex items-center justify-center cursor-pointer"
+          isExpanded ? "w-64 p-6 rounded-[2.5rem]" : "w-16 h-16 p-0 flex items-center justify-center cursor-pointer rounded-full"
         )}
         onClick={() => !isExpanded && setIsExpanded(true)}
       >
