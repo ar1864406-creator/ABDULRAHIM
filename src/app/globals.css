@@ -31,12 +31,22 @@
   * {
     @apply border-border;
   }
+  
+  html, body {
+    cursor: none !important; /* Completely hide default cursor */
+  }
+
   body {
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 selection:text-primary;
-    cursor: none; /* Hide default cursor to use custom one */
   }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
+  }
+  
+  /* Ensure interactive elements also don't show the default cursor */
+  a, button, input, textarea, [role="button"] {
+    cursor: none !important;
   }
 }
 
