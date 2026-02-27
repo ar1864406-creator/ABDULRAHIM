@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -104,6 +105,10 @@ export default {
         'expand-line': {
           '0%': { width: '0', opacity: '0' },
           '100%': { width: '100%', opacity: '1' }
+        },
+        'blink': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.3' },
         }
       },
       animation: {
@@ -114,7 +119,8 @@ export default {
         'drift': 'drift 20s ease-in-out infinite',
         'light-sweep': 'light-sweep 2.5s cubic-bezier(0.23, 1, 0.32, 1) infinite',
         'typewriter': 'typewriter 1.5s steps(40, end) forwards',
-        'expand-line': 'expand-line 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards'
+        'expand-line': 'expand-line 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards',
+        'blink': 'blink 1.5s ease-in-out infinite'
       },
     },
   },
