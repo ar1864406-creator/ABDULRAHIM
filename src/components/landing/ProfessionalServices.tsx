@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { Layout, Rocket, Code2, PenTool } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -27,6 +27,72 @@ const services = [
   }
 ]
 
+function ServiceCard({ service }: { service: typeof services[0] }) {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [rotate, setRotate] = useState({ x: 0, y: 0 })
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    
+    // Calculate mouse position relative to the center of the card
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    
+    // Map mouse position to -15deg to 15deg rotation
+    const rotateX = ((y - centerY) / centerY) * -15
+    const rotateY = ((x - centerX) / centerX) * 15
+    
+    setRotate({ x: rotateX, y: rotateY })
+  }
+
+  const handleMouseLeave = () => {
+    // Reset rotation when mouse leaves the card
+    setRotate({ x: 0, y: 0 })
+  }
+
+  return (
+    <div 
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={cn(
+        "group bg-card p-10 rounded-[2.5rem] border border-white/5 relative overflow-hidden transition-all duration-300 ease-out",
+        "hover:border-primary/30 hover:bg-card/80 shadow-2xl"
+      )}
+      style={{
+        transformStyle: 'preserve-3d',
+        transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+        transition: rotate.x === 0 && rotate.y === 0 ? 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)' : 'none'
+      }}
+    >
+      {/* Animated background accent */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      
+      <div className="relative z-10 space-y-8" style={{ transform: 'translateZ(60px)' }}>
+        <div className="text-primary p-4 w-fit rounded-2xl neumo-card-inset group-hover:scale-110 transition-transform duration-500">
+          {service.icon}
+        </div>
+        
+        <div style={{ transform: 'translateZ(40px)' }}>
+          <h3 className="text-2xl font-bold mb-4 font-headline group-hover:text-primary transition-colors">
+            {service.title}
+          </h3>
+          <p className="text-muted-foreground text-sm leading-relaxed font-light">
+            {service.description}
+          </p>
+        </div>
+      </div>
+
+      {/* Decorative corner accent */}
+      <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 blur-2xl rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors" />
+    </div>
+  )
+}
+
 export function ProfessionalServices() {
   return (
     <section id="services" className="py-32 relative overflow-hidden">
@@ -40,36 +106,9 @@ export function ProfessionalServices() {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 perspective-container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, i) => (
-            <div 
-              key={i} 
-              className={cn(
-                "group bg-card p-10 rounded-[2.5rem] border border-white/5 transition-all duration-500 relative overflow-hidden card-3d",
-                "hover:border-primary/30 hover:bg-card/80"
-              )}
-            >
-              {/* Animated background accent */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10 space-y-8 inner-3d">
-                <div className="text-primary p-4 w-fit rounded-2xl neumo-card-inset group-hover:scale-110 transition-transform duration-500">
-                  {service.icon}
-                </div>
-                
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 font-headline group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed font-light">
-                    {service.description}
-                  </p>
-                </div>
-              </div>
-
-              {/* Decorative corner accent */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 blur-2xl rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors" />
-            </div>
+            <ServiceCard key={i} service={service} />
           ))}
         </div>
       </div>
