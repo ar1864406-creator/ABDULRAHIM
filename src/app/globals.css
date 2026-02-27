@@ -54,31 +54,11 @@
 }
 
 .custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
   will-change: transform;
 }
 
 .custom-cursor-inner {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate(-50%, -50%);
   will-change: left, top, background-color;
-  transition: transform 0.3s ease-out;
 }
 
 @keyframes marquee {
@@ -88,5 +68,19 @@
 
 .animate-marquee {
   animation: marquee 15s linear infinite;
+  will-change: transform;
 }
 
+/* Optimized drift animation using GPU acceleration */
+@keyframes drift {
+  0% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(20vw, 15vh, 0); }
+  40% { transform: translate3d(-10vw, 30vh, 0); }
+  60% { transform: translate3d(25vw, -10vh, 0); }
+  80% { transform: translate3d(-15vw, -20vh, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.will-change-transform {
+  will-change: transform;
+}

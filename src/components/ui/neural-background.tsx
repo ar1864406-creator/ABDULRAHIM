@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 /**
  * @fileOverview A high-fidelity cinematic background component featuring floating particles, 
  * bokeh glow nodes, and multi-layered parallax movement that follows the cursor.
+ * Optimized to use CSS variables for mouse tracking to eliminate React re-renders on mousemove.
  */
 
 type Particle = {
@@ -32,7 +33,7 @@ export function NeuralBackground() {
   const [particles, setParticles] = useState<Particle[]>([]);
   const [bokehNodes, setBokehNodes] = useState<BokehNode[]>([]);
   const [isMounted, setIsMounted] = useState(false);
-  const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -63,10 +64,14 @@ export function NeuralBackground() {
     setBokehNodes(generatedBokehNodes);
 
     const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
       // Calculate normalized offset from center (-0.5 to 0.5)
       const x = (e.clientX / window.innerWidth) - 0.5;
       const y = (e.clientY / window.innerHeight) - 0.5;
-      setMouseOffset({ x, y });
+      
+      // Directly set CSS variables to avoid React re-renders
+      containerRef.current.style.setProperty('--mouse-x', x.toString());
+      containerRef.current.style.setProperty('--mouse-y', y.toString());
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -79,17 +84,20 @@ export function NeuralBackground() {
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
+    <div 
+      ref={containerRef} 
+      className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0 [--mouse-x:0] [--mouse-y:0]"
+    >
       {/* Deep Background Glow Blobs (Static layers for foundation) */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 blur-[180px] rounded-full animate-float opacity-40" />
-      <div className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-primary/15 blur-[200px] rounded-full animate-float [animation-delay:-10s] opacity-30" />
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 blur-[180px] rounded-full animate-float opacity-40 will-change-transform" />
+      <div className="absolute bottom-1/4 right-1/4 w-[700px] h-[700px] bg-primary/15 blur-[200px] rounded-full animate-float [animation-delay:-10s] opacity-30 will-change-transform" />
       
-      {/* Bokeh Layers (Interactive Parallax) */}
+      {/* Bokeh Layers (Interactive Parallax via CSS Variables) */}
       <div 
-        className="absolute inset-0 transition-transform duration-[1200ms] ease-out"
+        className="absolute inset-0 transition-transform duration-[1200ms] ease-out will-change-transform"
         style={{ 
-          transform: `translate3d(${mouseOffset.x * 30}px, ${mouseOffset.y * 30}px, 0)` 
-        }}
+          transform: `translate3d(calc(var(--mouse-x) * 30px), calc(var(--mouse-y) * 30px), 0)` 
+        } as React.CSSProperties}
       >
         {bokehNodes.map((node) => (
           <div
@@ -108,12 +116,12 @@ export function NeuralBackground() {
         ))}
       </div>
 
-      {/* Main Neural Particle System (Stronger Interactive Parallax) */}
+      {/* Main Neural Particle System (Stronger Interactive Parallax via CSS Variables) */}
       <div 
-        className="absolute inset-0 transition-transform duration-700 ease-out"
+        className="absolute inset-0 transition-transform duration-700 ease-out will-change-transform"
         style={{ 
-          transform: `translate3d(${mouseOffset.x * -50}px, ${mouseOffset.y * -50}px, 0)` 
-        }}
+          transform: `translate3d(calc(var(--mouse-x) * -50px), calc(var(--mouse-y) * -50px), 0)` 
+        } as React.CSSProperties}
       >
         {particles.map((p) => (
           <div
