@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 /**
  * @fileOverview A high-fidelity 3D custom cursor.
  * Features perspective-based tilting, layered depth, and velocity-responsive physics.
+ * Optimized for a thin, sharp "needle" aesthetic.
  */
 
 export function CustomCursor() {
@@ -34,9 +35,9 @@ export function CustomCursor() {
         cursorRef.current.style.transform = `translate3d(${positionRef.current.x}px, ${positionRef.current.y}px, 0)`
         
         // Apply 3D Tilt based on movement velocity
-        // tiltX is based on vertical movement, tiltY on horizontal
-        const tiltX = Math.max(Math.min(velocityRef.current.y * 0.4, 25), -25)
-        const tiltY = Math.max(Math.min(-velocityRef.current.x * 0.4, 25), -25)
+        // Reduced tilt range for a "sharper" feel
+        const tiltX = Math.max(Math.min(velocityRef.current.y * 0.3, 15), -15)
+        const tiltY = Math.max(Math.min(-velocityRef.current.x * 0.3, 15), -15)
         
         innerRef.current.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
       }
@@ -85,46 +86,46 @@ export function CustomCursor() {
     <div 
       ref={cursorRef}
       className="fixed top-0 left-0 z-[9999] pointer-events-none will-change-transform flex items-center justify-center -translate-x-1/2 -translate-y-1/2"
-      style={{ width: '40px', height: '40px', perspective: '600px' }}
+      style={{ width: '32px', height: '32px', perspective: '800px' }}
     >
       <div 
         ref={innerRef}
         className={cn(
           "w-full h-full flex items-center justify-center transition-transform duration-300 ease-out",
-          isHovering ? "scale-[1.6]" : "scale-100"
+          isHovering ? "scale-[1.4]" : "scale-100"
         )}
         style={{ transformStyle: 'preserve-3d' }}
       >
-        {/* 3D Depth Layers */}
+        {/* 3D Depth Layers - Tightened for sharpness */}
         
-        {/* Shadow Layer (Deepest) */}
+        {/* Shadow Layer */}
         <div 
-          className="absolute inset-0 opacity-30 blur-[6px] bg-black rounded-full" 
-          style={{ transform: 'translateZ(-15px) scale(0.8)' }}
+          className="absolute inset-0 opacity-20 blur-[4px] bg-black rounded-full" 
+          style={{ transform: 'translateZ(-10px) scale(0.6)' }}
         />
         
-        {/* Glow Layer (Middle) */}
+        {/* Glow Layer - Concentrated */}
         <div 
           className={cn(
-            "absolute inset-0 opacity-20 blur-[10px] rounded-full transition-colors duration-500",
+            "absolute inset-0 opacity-15 blur-[6px] rounded-full transition-colors duration-500",
             isHovering ? "bg-white" : "bg-primary"
           )} 
-          style={{ transform: 'translateZ(-8px)' }}
+          style={{ transform: 'translateZ(-5px)' }}
         />
 
-        {/* The Main Pointer Head (Foremost) */}
+        {/* The Main Pointer Head - Thin & Sharp SVG */}
         <svg 
-          width="24" 
-          height="24" 
+          width="20" 
+          height="20" 
           viewBox="0 0 24 24" 
           className={cn(
-            "fill-primary transition-colors duration-300 relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]",
+            "fill-primary transition-colors duration-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]",
             isHovering && "fill-white"
           )}
-          style={{ transform: 'translateZ(12px) rotate(-15deg)' }}
+          style={{ transform: 'translateZ(10px) rotate(-10deg)' }}
         >
-          {/* Sharp Triangle Head */}
-          <path d="M2 2l18 9-9 2-9 9z" />
+          {/* Elongated Sharp Triangle */}
+          <path d="M2 2l20 6-14 2-2 14z" />
         </svg>
       </div>
     </div>
