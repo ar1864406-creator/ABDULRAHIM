@@ -1,8 +1,10 @@
+
 "use client"
 
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { NeuralBackground } from '@/components/ui/neural-background'
+import Link from 'next/link'
 
 export function Hero() {
   return (
@@ -22,11 +24,11 @@ export function Hero() {
         </h1>
         
         <div className="flex flex-col sm:flex-row items-start justify-start gap-6 animate-fade-in-up [animation-delay:400ms]">
-          <Button size="lg" className="h-14 px-10 rounded-full bg-primary hover:bg-primary/90 text-white font-bold tracking-tight transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.3)]">
-            View Recent Work
+          <Button size="lg" className="h-14 px-10 rounded-full bg-primary hover:bg-primary/90 text-white font-bold tracking-tight transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(16,185,129,0.3)]" asChild>
+            <Link href="#audit">Explore Strategy</Link>
           </Button>
-          <Button size="lg" variant="outline" className="h-14 px-10 rounded-full border-white/20 hover:bg-white/5 text-white font-bold tracking-tight transition-all hover:border-primary/50">
-            Contact Me
+          <Button size="lg" variant="outline" className="h-14 px-10 rounded-full border-white/20 hover:bg-white/5 text-white font-bold tracking-tight transition-all hover:border-primary/50" asChild>
+            <Link href="#contact">Contact Me</Link>
           </Button>
         </div>
       </div>

@@ -6,7 +6,6 @@ import { Header } from '@/components/landing/Header'
 import { Hero } from '@/components/landing/Hero'
 import { SkillMarquee } from '@/components/landing/SkillMarquee'
 import { Biography } from '@/components/landing/Biography'
-import { SelectedWork } from '@/components/landing/SelectedWork'
 import { AuditSection } from '@/components/landing/AuditSection'
 import { TechnicalReality } from '@/components/landing/TechnicalReality'
 import { ProfessionalServices } from '@/components/landing/ProfessionalServices'
@@ -28,7 +27,6 @@ export default function Home() {
       <SkillMarquee />
       <Biography />
       <Benefits />
-      <SelectedWork />
       <AuditSection />
       <SkillProgress />
       <TechnicalReality />
