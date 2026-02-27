@@ -35,6 +35,30 @@
       "description": "User testimonial avatar 3",
       "imageUrl": "https://images.unsplash.com/photo-1688989667321-03b336e24a44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwb3J0cmFpdCUyMHVzZXJ8ZW58MHx8fHwxNzcyMDIxNTAzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "portrait user"
+    },
+    {
+      "id": "project-ecommerce",
+      "description": "Ecommerce website design mockup",
+      "imageUrl": "https://images.unsplash.com/photo-1557821552-17105176677c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDB8fHx8MTc3MTk1MTIwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ecommerce website"
+    },
+    {
+      "id": "project-saas",
+      "description": "SaaS platform dashboard mockup",
+      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzYWFzJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc3MTk1MTIwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "saas dashboard"
+    },
+    {
+      "id": "project-mobile",
+      "description": "Mobile application UI design mockup",
+      "imageUrl": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2JpbGUlMjBhcHB8ZW58MHx8fHwxNzcxOTUxMjAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "project-branding",
+      "description": "Corporate branding and identity mockup",
+      "imageUrl": "https://images.unsplash.com/photo-1523726491678-bf852e717f6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxvcmFuZGluZyUyMGRlc2lnbnxlbnwwfHx8fDE3NzE5NTEyMDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "branding design"
     }
   ]
 }
