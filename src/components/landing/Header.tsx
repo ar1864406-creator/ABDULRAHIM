@@ -1,4 +1,3 @@
-
 "use client"
 
 import React from 'react'
@@ -7,6 +6,7 @@ import { cn } from '@/lib/utils'
 
 const navItems = [
   { name: 'ABOUT', href: '#about' },
+  { name: 'EXPERTISE', href: '#expertise' },
   { name: 'SERVICES', href: '#services' },
   { name: 'CONTACT', href: '#contact' },
 ]
