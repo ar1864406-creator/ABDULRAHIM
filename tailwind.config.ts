@@ -90,9 +90,10 @@ export default {
         },
         'drift': {
           '0%': { transform: 'translate(0, 0)' },
-          '25%': { transform: 'translate(100px, 150px)' },
-          '50%': { transform: 'translate(-50px, 200px)' },
-          '75%': { transform: 'translate(-120px, -80px)' },
+          '20%': { transform: 'translate(20vw, 15vh)' },
+          '40%': { transform: 'translate(-10vw, 30vh)' },
+          '60%': { transform: 'translate(25vw, -10vh)' },
+          '80%': { transform: 'translate(-15vw, -20vh)' },
           '100%': { transform: 'translate(0, 0)' },
         },
         'light-sweep': {
@@ -125,7 +126,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
         'float': 'float 8s ease-in-out infinite',
-        'drift': 'drift 30s ease-in-out infinite',
+        'drift': 'drift 35s ease-in-out infinite',
         'light-sweep': 'light-sweep 2.5s cubic-bezier(0.23, 1, 0.32, 1) infinite',
         'typewriter': 'typewriter 1.5s steps(40, end) forwards',
         'expand-line': 'expand-line 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards',

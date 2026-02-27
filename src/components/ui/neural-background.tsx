@@ -10,12 +10,12 @@ import React, { useMemo } from 'react';
 export function NeuralBackground() {
   // Memoize particles to prevent re-generation on every render
   const particles = useMemo(() => {
-    return Array.from({ length: 250 }).map((_, i) => ({
+    return Array.from({ length: 300 }).map((_, i) => ({
       id: i,
       size: Math.random() * 2.5 + 0.5,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      duration: Math.random() * 20 + 20, // Faster than before
+      duration: Math.random() * 15 + 25, // Randomized durations for organic movement
       delay: Math.random() * -40,
       opacity: Math.random() * 0.5 + 0.1,
       pulseDelay: Math.random() * 5,
@@ -24,12 +24,12 @@ export function NeuralBackground() {
 
   // Soft bokeh layers for depth
   const bokehNodes = useMemo(() => {
-    return Array.from({ length: 20 }).map((_, i) => ({
+    return Array.from({ length: 25 }).map((_, i) => ({
       id: i,
-      size: Math.random() * 200 + 100,
+      size: Math.random() * 250 + 150,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      duration: Math.random() * 40 + 40,
+      duration: Math.random() * 40 + 50,
       delay: Math.random() * -60,
       opacity: Math.random() * 0.08 + 0.02,
     }));
@@ -46,7 +46,7 @@ export function NeuralBackground() {
         {bokehNodes.map((node) => (
           <div
             key={`bokeh-${node.id}`}
-            className="absolute rounded-full bg-primary/20 blur-[80px]"
+            className="absolute rounded-full bg-primary/20 blur-[100px]"
             style={{
               width: `${node.size}px`,
               height: `${node.size}px`,
