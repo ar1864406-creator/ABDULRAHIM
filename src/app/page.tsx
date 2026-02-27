@@ -13,7 +13,7 @@ import { Footer } from '@/components/landing/Footer'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground mesh-stars relative">
+    <main className="min-h-screen bg-background text-foreground relative">
       <Header />
       <Hero />
       <SkillMarquee />
