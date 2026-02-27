@@ -13,7 +13,7 @@ export function Hero() {
         
         <h1 className="text-6xl md:text-8xl font-bold leading-[1.1] mb-12 max-w-5xl">
           Designing Clean<br />
-          <span className="text-muted-foreground/40">Modern</span> Digital<br />
+          <span className="text-primary">Modern</span> Digital<br />
           Experiences
         </h1>
         
