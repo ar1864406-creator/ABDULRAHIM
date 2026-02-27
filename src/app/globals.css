@@ -4,116 +4,43 @@
 
 @layer base {
   :root {
-    --background: 4 91% 10%; /* #1a0301 */
-    --foreground: 45 100% 88%; /* #FFF0C4 */
-    --card: 4 91% 12%;
-    --card-foreground: 45 100% 88%;
-    --popover: 4 91% 10%;
-    --popover-foreground: 45 100% 88%;
-    --primary: 4 90% 29%; /* #8C1007 */
-    --primary-foreground: 45 100% 88%;
-    --secondary: 3 91% 21%; /* #660B05 */
-    --secondary-foreground: 45 100% 88%;
-    --muted: 3 91% 15%;
-    --muted-foreground: 45 40% 70%;
-    --accent: 4 90% 29%;
-    --accent-foreground: 45 100% 88%;
+    --background: 240 10% 4%; /* Near black */
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 158 94% 30%; /* Emerald Green */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 10% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 158 94% 30%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 4 91% 20%;
-    --input: 4 91% 20%;
-    --ring: 4 90% 29%;
-    --radius: 2rem;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 158 94% 30%;
+    --radius: 0.75rem;
   }
 }
 
 @layer base {
-  html {
-    scroll-padding-top: 100px;
-  }
-  
-  html.lenis, html.lenis body {
-    height: auto;
-  }
-  
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-  
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 selection:text-primary overflow-x-hidden;
-    cursor: none;
-  }
-  a, button, [role="button"], input, textarea {
-    cursor: none !important;
+    @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 selection:text-primary;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
   }
 }
 
-/* Neumorphism Utilities */
-.neumo-card {
-  background: hsl(var(--card));
-  box-shadow: 
-    12px 12px 24px rgba(0, 0, 0, 0.4),
-    -12px -12px 24px rgba(255, 255, 255, 0.02);
-  @apply border-none rounded-[2.5rem];
-}
-
-.neumo-card-primary {
-  background: hsl(var(--primary));
-  box-shadow: 
-    12px 12px 24px rgba(0, 0, 0, 0.3),
-    -12px -12px 24px rgba(140, 16, 7, 0.1);
-  @apply border-none rounded-[2.5rem];
-}
-
-.neumo-card-inset {
-  background: hsl(var(--card));
-  box-shadow: 
-    inset 8px 8px 16px rgba(0, 0, 0, 0.5),
-    inset -8px -8px 16px rgba(255, 255, 255, 0.02);
-  @apply border-none rounded-[2.5rem];
-}
-
-.neumo-button {
-  background: hsl(var(--card));
-  box-shadow: 
-    6px 6px 12px rgba(0, 0, 0, 0.4),
-    -6px -6px 12px rgba(255, 255, 255, 0.03);
-  @apply rounded-2xl active:shadow-inner transition-all duration-200;
-}
-
-.neumo-button-primary {
-  background: hsl(var(--primary));
-  box-shadow: 
-    6px 6px 12px rgba(0, 0, 0, 0.4),
-    -6px -6px 12px rgba(255, 240, 196, 0.05);
-  @apply rounded-2xl active:shadow-inner transition-all duration-200;
-}
-
-.glass-card {
-  background: rgba(26, 3, 1, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 240, 196, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-}
-
-.neon-glow-primary {
-  box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.5);
-}
-
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground to-primary bg-[length:200%_auto] animate-gradient;
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary bg-[length:200%_auto] animate-gradient;
 }
 
 @keyframes gradient {
@@ -122,56 +49,15 @@
 }
 
 .animate-gradient {
-  animation: gradient 6s linear infinite;
+  animation: gradient 8s linear infinite;
 }
 
-.mesh-gradient {
+.mesh-stars {
   background-image: 
-    radial-gradient(at 0% 0%, hsla(4, 90%, 29%, 0.3) 0, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(3, 91% , 21%, 0.2) 0, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(4, 91%, 13%, 0.4) 0, transparent 50%),
-    radial-gradient(at 0% 100%, hsla(45, 100%, 88%, 0.05) 0, transparent 50%);
+    radial-gradient(circle at 2px 2px, rgba(16, 185, 129, 0.15) 1px, transparent 0);
+  background-size: 40px 40px;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotateX(0deg); }
-  50% { transform: translateY(-20px) rotateX(5deg); }
-}
-
-.animate-float-slow {
-  animation: float 8s ease-in-out infinite;
-}
-
-.perspective-container {
-  perspective: 2000px;
-}
-
-.card-3d {
-  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.8s ease;
-  transform-style: preserve-3d;
-}
-
-.card-3d:hover {
-  transform: translateY(-20px) rotateX(12deg) rotateY(-12deg);
-}
-
-.inner-3d {
-  transform: translateZ(50px);
-}
-
-.inner-3d-deep {
-  transform: translateZ(80px);
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Custom Cursor */
 .custom-cursor {
   position: fixed;
   top: 0;
@@ -182,30 +68,20 @@
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: difference;
-  transition: transform 0.15s ease-out, background-color 0.3s ease;
+  transition: transform 0.15s ease-out;
 }
 
 .custom-cursor-inner {
   position: fixed;
   top: 0;
   left: 0;
-  width: 8px;
-  height: 8px;
-  background-color: #FFF0C4; /* Cream dot */
+  width: 6px;
+  height: 6px;
+  background-color: hsl(var(--primary));
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px rgba(255, 240, 196, 0.5);
-}
-
-@keyframes cursor-blink {
-  0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.8); }
-}
-
-.animate-cursor-blink {
-  animation: cursor-blink 1.5s ease-in-out infinite;
 }
 
 @keyframes marquee {
@@ -214,36 +90,5 @@
 }
 
 .animate-marquee {
-  animation: marquee 8s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-.marquee-3d-item {
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease;
-}
-
-.marquee-3d-item:hover {
-  transform: translateZ(30px) scale(1.1);
-}
-
-@keyframes light-sweep {
-  0% { transform: translateX(-100%) skewX(-25deg); }
-  30%, 100% { transform: translateX(200%) skewX(-25deg); }
-}
-
-.animate-light-sweep {
-  animation: light-sweep 2.5s cubic-bezier(0.23, 1, 0.32, 1) infinite;
-}
-
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-.animate-typewriter {
-  animation: typewriter 1.5s steps(40, end) forwards;
+  animation: marquee 30s linear infinite;
 }
