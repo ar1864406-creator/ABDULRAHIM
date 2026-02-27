@@ -53,7 +53,7 @@ export function AuditSection() {
     <section id="audit" className="py-32 relative overflow-hidden bg-background/50">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-[#FFF0C4] text-[10px] font-bold uppercase tracking-[0.3em] mb-6 border border-white/10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-6 border border-white/10">
             Conversion Strategy
           </div>
           <h2 className="text-5xl md:text-7xl font-bold font-headline leading-tight">
@@ -100,7 +100,7 @@ export function AuditSection() {
                   <div className="absolute inset-0 rounded-full bg-primary/40 animate-ping" />
                   <AlertCircle className="w-5 h-5 text-white" />
                   
-                  <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-black text-[#FFF0C4] text-[10px] font-bold rounded-lg opacity-0 group-hover/hotspot:opacity-100 transition-opacity whitespace-nowrap">
+                  <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-black text-primary text-[10px] font-bold rounded-lg opacity-0 group-hover/hotspot:opacity-100 transition-opacity whitespace-nowrap">
                     {point.label}
                   </span>
                 </button>
@@ -124,7 +124,7 @@ export function AuditSection() {
                 </div>
 
                 <div className="neumo-card-inset p-6 rounded-2xl">
-                  <div className="flex items-center gap-3 text-[#FFF0C4] mb-2">
+                  <div className="flex items-center gap-3 text-primary mb-2">
                     <Zap className="w-4 h-4" />
                     <span className="text-[10px] font-bold uppercase tracking-widest">Business Impact</span>
                   </div>

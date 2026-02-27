@@ -54,12 +54,12 @@ export function Benefits() {
     <section id="expertise" className="py-32 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mb-24">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-[#FFF0C4] text-[10px] font-bold uppercase tracking-[0.3em] mb-6 border border-white/10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-6 border border-white/10">
             Expertise & Skills
           </div>
           <h2 className="text-5xl md:text-7xl font-bold font-headline leading-tight">
             I craft digital <br />
-            <span className="text-muted-foreground">experiences that</span> <span className="gradient-text">scale business.</span>
+            <span className="text-muted-foreground">experiences that</span> <span className="text-gradient">scale business.</span>
           </h2>
         </div>
 

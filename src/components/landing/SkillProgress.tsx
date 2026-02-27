@@ -43,11 +43,11 @@ export function SkillProgress() {
             "transition-all duration-1000 delay-300",
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
           )}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-[#FFF0C4] text-[10px] font-bold uppercase tracking-[0.3em] mb-6 border border-white/10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-6 border border-white/10">
               Technical Arsenal
             </div>
             <h2 className="text-5xl md:text-7xl font-bold font-headline leading-tight mb-8">
-              The tools behind the <span className="gradient-text">craft.</span>
+              The tools behind the <span className="text-gradient">craft.</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12 max-w-xl leading-relaxed font-light">
               Proficiency isn't just about knowing the tool; it's about mastering the workflow. I leverage a modern stack to build interfaces that are as robust as they are beautiful.
