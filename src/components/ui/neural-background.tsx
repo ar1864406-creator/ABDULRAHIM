@@ -15,7 +15,7 @@ export function NeuralBackground() {
       size: Math.random() * 2.5 + 0.5,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      duration: Math.random() * 40 + 20,
+      duration: Math.random() * 20 + 20, // Faster than before
       delay: Math.random() * -40,
       opacity: Math.random() * 0.5 + 0.1,
       pulseDelay: Math.random() * 5,
@@ -24,12 +24,12 @@ export function NeuralBackground() {
 
   // Soft bokeh layers for depth
   const bokehNodes = useMemo(() => {
-    return Array.from({ length: 15 }).map((_, i) => ({
+    return Array.from({ length: 20 }).map((_, i) => ({
       id: i,
-      size: Math.random() * 150 + 50,
+      size: Math.random() * 200 + 100,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      duration: Math.random() * 60 + 30,
+      duration: Math.random() * 40 + 40,
       delay: Math.random() * -60,
       opacity: Math.random() * 0.08 + 0.02,
     }));
@@ -46,14 +46,14 @@ export function NeuralBackground() {
         {bokehNodes.map((node) => (
           <div
             key={`bokeh-${node.id}`}
-            className="absolute rounded-full bg-primary/20 blur-[60px]"
+            className="absolute rounded-full bg-primary/20 blur-[80px]"
             style={{
               width: `${node.size}px`,
               height: `${node.size}px`,
               left: node.left,
               top: node.top,
               opacity: node.opacity,
-              animation: `drift ${node.duration}s infinite alternate ease-in-out`,
+              animation: `drift ${node.duration}s infinite linear`,
               animationDelay: `${node.delay}s`,
             }}
           />
@@ -72,7 +72,7 @@ export function NeuralBackground() {
               left: p.left,
               top: p.top,
               opacity: p.opacity,
-              animation: `drift ${p.duration}s infinite alternate ease-in-out, blink 4s infinite ease-in-out`,
+              animation: `drift ${p.duration}s infinite linear, blink 4s infinite ease-in-out`,
               animationDelay: `${p.delay}s, ${p.pulseDelay}s`,
               boxShadow: p.size > 2 ? `0 0 10px rgba(16, 185, 129, ${p.opacity})` : 'none',
             }}
