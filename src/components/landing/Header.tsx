@@ -39,7 +39,7 @@ export function Header() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px', // Adjusted for better trigger point
+      rootMargin: '-20% 0px -70% 0px',
       threshold: 0
     }
 
@@ -78,7 +78,6 @@ export function Header() {
 
   const handleMouseLeave = () => {
     setHoveredIndex(null)
-    // Fallback to active index position after hover ends
     updateIndicator(activeIndex, false)
   }
 
@@ -96,9 +95,9 @@ export function Header() {
           className="hidden md:flex items-center gap-2 relative"
           onMouseLeave={handleMouseLeave}
         >
-          {/* Dynamic "White Box" Explorer Highlight */}
+          {/* Dynamic Green Box Explorer Highlight */}
           <div 
-            className="absolute h-8 bg-white/10 border border-white/10 rounded-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none"
+            className="absolute h-8 bg-primary rounded-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-none shadow-[0_0_15px_rgba(16,185,129,0.4)]"
             style={{
               left: indicatorStyle.left,
               width: indicatorStyle.width,
@@ -117,7 +116,7 @@ export function Header() {
               className={cn(
                 "relative z-10 text-[10px] font-bold tracking-[0.2em] transition-all px-4 py-2 rounded-full",
                 (hoveredIndex === index || (hoveredIndex === null && activeIndex === index)) 
-                  ? "text-white" 
+                  ? "text-primary-foreground" 
                   : "text-muted-foreground hover:text-white/80"
               )}
             >
@@ -126,7 +125,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="md:hidden w-4" /> {/* Spacer for mobile balance */}
+        <div className="md:hidden w-4" />
       </div>
     </header>
   )
