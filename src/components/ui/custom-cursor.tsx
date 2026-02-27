@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useEffect, useState } from 'react'
@@ -7,12 +8,14 @@ export function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
-  const [isGreen, setIsGreen] = useState(true)
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY })
-      if (!isVisible) setIsVisible(true)
+      // Use requestAnimationFrame for smoother performance
+      requestAnimationFrame(() => {
+        setPosition({ x: e.clientX, y: e.clientY })
+        if (!isVisible) setIsVisible(true)
+      })
     }
 
     const onMouseOver = (e: MouseEvent) => {
@@ -37,16 +40,10 @@ export function CustomCursor() {
     window.addEventListener('mouseover', onMouseOver)
     window.addEventListener('mouseout', onMouseOut)
 
-    // Interval to toggle cursor color every 500ms
-    const interval = setInterval(() => {
-      setIsGreen(prev => !prev)
-    }, 500)
-
     return () => {
       window.removeEventListener('mousemove', onMouseMove)
       window.removeEventListener('mouseover', onMouseOver)
       window.removeEventListener('mouseout', onMouseOut)
-      clearInterval(interval)
     }
   }, [isVisible])
 
@@ -56,22 +53,21 @@ export function CustomCursor() {
     <>
       <div 
         className={cn(
-          "custom-cursor bg-foreground/20 border border-foreground/30",
-          isHovering && "scale-[3] bg-primary/20 border-primary/50"
+          "custom-cursor bg-foreground/10 border border-foreground/20 backdrop-blur-[1px]",
+          isHovering && "scale-[2.5] bg-primary/20 border-primary/40"
         )}
         style={{ 
-          transform: `translate(${position.x - 10}px, ${position.y - 10}px)` 
+          transform: `translate3d(${position.x - 10}px, ${position.y - 10}px, 0)` 
         }}
       />
       <div 
         className={cn(
-          "custom-cursor-inner transition-colors duration-300",
-          isHovering && "scale-[0.5]"
+          "custom-cursor-inner animate-cursor-pulse",
+          isHovering && "scale-0"
         )}
         style={{ 
           left: position.x,
           top: position.y,
-          backgroundColor: isGreen ? 'hsl(var(--primary))' : '#ffffff'
         }}
       />
     </>

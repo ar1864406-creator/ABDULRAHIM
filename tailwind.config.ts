@@ -109,6 +109,10 @@ export default {
         'blink': {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.3' },
+        },
+        'cursor-pulse': {
+          '0%, 100%': { 'background-color': 'hsl(var(--primary))' },
+          '50%': { 'background-color': '#ffffff' },
         }
       },
       animation: {
@@ -120,7 +124,8 @@ export default {
         'light-sweep': 'light-sweep 2.5s cubic-bezier(0.23, 1, 0.32, 1) infinite',
         'typewriter': 'typewriter 1.5s steps(40, end) forwards',
         'expand-line': 'expand-line 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards',
-        'blink': 'blink 1.5s ease-in-out infinite'
+        'blink': 'blink 1.5s ease-in-out infinite',
+        'cursor-pulse': 'cursor-pulse 1s ease-in-out infinite'
       },
     },
   },

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,6 +34,7 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased selection:bg-primary/30 selection:text-primary;
+    cursor: none; /* Hide default cursor to use custom one */
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tight;
@@ -68,7 +70,8 @@
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: difference;
-  transition: transform 0.15s ease-out;
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
 }
 
 .custom-cursor-inner {
@@ -77,11 +80,12 @@
   left: 0;
   width: 6px;
   height: 6px;
-  background-color: hsl(var(--primary));
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
   transform: translate(-50%, -50%);
+  will-change: left, top, background-color;
+  transition: transform 0.3s ease-out;
 }
 
 @keyframes marquee {
