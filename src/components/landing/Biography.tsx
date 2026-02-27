@@ -1,9 +1,9 @@
+
 "use client"
 
 import React from 'react'
 import Image from 'next/image'
 import { PlaceHolderImages } from '@/lib/placeholder-images'
-import { Twitter, Instagram, Linkedin, Github } from 'lucide-react'
 
 export function Biography() {
   const profileImg = PlaceHolderImages.find(img => img.id === 'hero-profile')
@@ -25,13 +25,7 @@ export function Biography() {
               </div>
               <div className="px-4 pb-4">
                 <h3 className="text-3xl font-bold mb-1">Abdul Rahim</h3>
-                <p className="text-primary text-xs font-bold uppercase tracking-widest mb-6">Web Designer</p>
-                <div className="flex gap-4">
-                  <Twitter className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                  <Instagram className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                  <Linkedin className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                  <Github className="w-4 h-4 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                </div>
+                <p className="text-primary text-xs font-bold uppercase tracking-widest">Web Designer</p>
               </div>
             </div>
           </div>
