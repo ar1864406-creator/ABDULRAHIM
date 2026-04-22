@@ -1,12 +1,40 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Mail, Instagram, Linkedin, Github } from 'lucide-react'
 
 export function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleWhatsAppSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    // Updated with your actual WhatsApp number
+    const phoneNumber = "923161668423" 
+    
+    const message = `*New Inquiry from Portfolio*%0A%0A` +
+      `*Name:* ${formData.name}%0A` +
+      `*Email:* ${formData.email}%0A` +
+      `*Subject:* ${formData.subject}%0A%0A` +
+      `*Message:*%0A${formData.message}`
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`
+    window.open(whatsappUrl, '_blank')
+  }
+
   return (
     <section id="contact" className="py-32">
       <div className="container mx-auto px-6">
@@ -41,26 +69,55 @@ export function ContactSection() {
           </div>
           
           <div className="bg-card p-12 rounded-[3rem] border border-white/5">
-            <form className="space-y-6">
+            <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Full Name</label>
-                  <Input placeholder="John Doe" className="bg-white/5 border-white/10 h-14 rounded-xl px-6" />
+                  <Input 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Doe" 
+                    required
+                    className="bg-white/5 border-white/10 h-14 rounded-xl px-6" 
+                  />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Email Address</label>
-                  <Input placeholder="john@example.com" className="bg-white/5 border-white/10 h-14 rounded-xl px-6" />
+                  <Input 
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john@example.com" 
+                    required
+                    className="bg-white/5 border-white/10 h-14 rounded-xl px-6" 
+                  />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Subject</label>
-                <Input placeholder="Project Inquiry" className="bg-white/5 border-white/10 h-14 rounded-xl px-6" />
+                <Input 
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  placeholder="Project Inquiry" 
+                  required
+                  className="bg-white/5 border-white/10 h-14 rounded-xl px-6" 
+                />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Message</label>
-                <Textarea placeholder="Tell me about your project..." className="bg-white/5 border-white/10 min-h-[160px] rounded-xl px-6 py-4" />
+                <Textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your project..." 
+                  required
+                  className="bg-white/5 border-white/10 min-h-[160px] rounded-xl px-6 py-4" 
+                />
               </div>
-              <Button className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl text-lg">
+              <Button type="submit" className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl text-lg">
                 Send Message
               </Button>
             </form>

@@ -19,6 +19,7 @@ export function Biography() {
                   src={profileImg?.imageUrl || ''} 
                   alt="Abdul Rahim" 
                   fill
+                  priority
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

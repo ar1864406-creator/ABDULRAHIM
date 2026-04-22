@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Abdul Rahim | Web UI/UX Designer & Frontend Developer',
   description: 'Portfolio of Abdul Rahim, a passionate Web UI/UX Designer with 2 years of experience creating modern, conversion-focused landing pages.',
   icons: {
-    icon: '/ChatGPT Image Feb 27, 2026, 06_41_14 PM.png',
+    icon: '/Untitled design.ico',
   },
 };
 
